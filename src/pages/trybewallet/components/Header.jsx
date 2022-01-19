@@ -1,28 +1,64 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import WalletContext from "../contexts/WalletContext";
 
 export default function Header() {
-  const { tags, methods } = useContext(WalletContext);
+  const { currencies, methods, tags} = useContext(WalletContext);
+
+  const [expense, setExpense] = useState({
+    value: '',
+    currency: currencies,
+    method: methods[0],
+    tag: tags[0],
+    description: '',
+  })
+
+  function handleInputChange({ target }) {
+    setExpense((prevState) => ({
+      ...prevState,
+      [target.name]: target.value,
+    }))
+  }
+
+  function handleSubmitExpense(e) {
+    e.preventDefault();
+    console.log(expense);
+  }
 
   return (
     <header>
-      <form>
+      <form onSubmit={ handleSubmitExpense }>
         <label htmlFor="value">
           Valor:
-          <input type="text" id="value"/>
+          <input
+            type="number"
+            id="value"
+            name="value"
+            value={ expense.value }
+            onChange={ handleInputChange }
+          />
         </label>
 
         <label htmlFor="currency">
           Moeda:
-          <select id="currency">
-            <option>URL</option>
+          <select
+            id="currency"
+            name="currency"
+            onChange={ handleInputChange }
+          >
+            {currencies.map(currency => (
+              <option key={ currency } value={ currency }>{currency}</option>
+            ))}
           </select>
         </label>
 
         <label htmlFor="method">
           Método de pagamento:
-          <select id="method">
+          <select
+            id="method"
+            name="method"
+            onChange={ handleInputChange }
+          >
             {methods.map(method => (
               <option key={ method } value={ method }>{method}</option>
             ))}
@@ -31,7 +67,11 @@ export default function Header() {
 
         <label htmlFor="tag">
           Tag:
-          <select id="tag">
+          <select
+            id="tag"
+            name="tag"
+            onChange={ handleInputChange }
+          >
           {tags.map(tag => (
               <option key={ tag } value={ tag }>{tag}</option>
             ))}
@@ -40,7 +80,13 @@ export default function Header() {
 
         <label htmlFor="description">
           Descrição:
-          <input type="text" id="description"/>
+          <input
+            type="text"
+            id="description"
+            name="description"
+            value={ expense.description }
+            onChange={ handleInputChange }
+          />
         </label>
 
         <button type="submit">
