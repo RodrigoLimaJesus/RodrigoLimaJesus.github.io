@@ -5,12 +5,18 @@
 }
 
 :root {
-  --app-bg-dark: rgb(10, 10, 10);
+  --app-bg-dark: #1e3250;
   --app-txt-in-dark: rgb(240, 240, 240);
+  --orange: rgb(248, 120, 49);
+  --yellow: rgb(239, 216, 29);
 }
 
 .orange {
-  color: rgb(248, 120, 49);
+  color: var(--orange);
+}
+
+.yellow {
+  color: var(--yellow);
 }
 
 .green {
@@ -21,24 +27,24 @@
   color: rgb(79, 157, 214);
 }
 
-.yellow {
-  color: rgb(239, 216, 29);
-}
-
 .purple {
-  color: rgb(114, 72, 182);
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
+  color: rgb(200, 120, 240);
 }
 
 body {
   font-family: sans-serif;
   background-color: var(--app-bg-dark);
   color: var(--app-txt-in-dark);
+}
+
+a {
+  text-decoration: none;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+a:visited {
+  color: var(--yellow);
 }
 
 button {
@@ -64,11 +70,12 @@ button {
 .apresentation-container img {
   width: 70%;
   border-radius: 10px;
+  box-shadow: var(--app-txt-in-dark) 0 10px 1rem;
 }
 
 .apresentation-container p {
   font-weight: bold;
-  margin: 30px 0;
+  margin-top: 30px;
   text-align: justify;
   font-size: inherit;
 }
@@ -84,9 +91,9 @@ button {
   flex-direction: column;
   align-items: center;
   font-size: 1rem;
-  margin: 6px;
+  margin: 10px;
 }
 
 .skills-container svg {
-  font-size: 5rem;
+  font-size: 4rem;
 }

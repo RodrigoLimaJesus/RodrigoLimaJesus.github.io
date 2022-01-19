@@ -12,27 +12,35 @@
   position: fixed;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  text-align: center;
   flex-direction: column;
-  justify-content: center;
-  background-color: rgb(36, 36, 36);
-  height: 100vh;
+  background-color: var(--app-bg-dark);
   top: 0;
   right: 0;
   animation-name: hide-side-bar;
   animation-duration: var(--animation-time);
+  height: 100vh;
   width: 0vw;
 }
 
-.side-bar > img {
-  width: 60%;
-  box-shadow: rgba(255, 255, 255, 0.795) 0 0 1rem 0.1rem;
+.side-bar div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 90%;
+  padding: 10px;
+}
+
+.side-bar img {
+  width: 70%;
   border-radius: 10px;
-  margin: 15px 0;
 }
 
 .side-bar nav {
-  width: 90%;
   font-size: 1.5rem;
+  width: 100%;
 }
 
 .side-bar a {
@@ -43,11 +51,16 @@
 }
 
 .side-bar svg {
-  margin-right: 15px;
+  margin-right: 10px;
+}
+
+.side-bar span {
+  font-size: 1rem;
+  width: 100%;
 }
 
 .show-side-bar {
-  box-shadow: 0 0 0 100rem rgba(80, 80, 80, 0.795);
+  box-shadow: 0 0 0 100rem rgba(0, 0, 0, 0.7);
   animation-name: show-side-bar;
   animation-duration: var(--animation-time);
   width: var(--width-side-bar);

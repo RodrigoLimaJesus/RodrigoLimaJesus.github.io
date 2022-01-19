@@ -20,11 +20,11 @@ export default function App() {
           src={ProgrammigGif}
           alt="Gif de pessoa programando"
         />
-        <p>Estudante de desenvolvimento web na <a className="green" href="https://www.betrybe.com/">Trybe</a>, atualmente formado como dev front-end Jr e me aprofundando nos conhecimentos básicos do back-end.</p>
+        <p>Estudante de desenvolvimento web na <a href="https://www.betrybe.com/">Trybe</a>, atualmente formado como dev front-end Jr e me aprofundando nos conhecimentos básicos do back-end.</p>
       </div>
 
       <div className="container skills-container">
-        <h2 className="green">{"<Stacks>"}</h2>
+        <h2 className="blue">{"<Frontend>"}</h2>
         <div>
           <span className="blue"><DiCss3 />CSS</span>
           <span className="orange"><DiHtml5 />HTML</span>
@@ -34,7 +34,7 @@ export default function App() {
           <span className="purple"><SiRedux />REDUX</span>
           <span><SiGithub />GITHUB</span>
         </div>
-        <h2 className="green">{"</Stacks>"}</h2>
+        <h2 className="blue">{"</Frontend>"}</h2>
       </div>
     </div>
   );
