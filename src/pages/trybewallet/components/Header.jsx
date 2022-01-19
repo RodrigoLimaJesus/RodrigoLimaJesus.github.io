@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 
 import WalletContext from "../contexts/WalletContext";
+import { getExchange } from "../services/currenciesApi";
 
 export default function Header() {
-  const { currencies, methods, tags} = useContext(WalletContext);
+  const { currencies, methods, tags, addExpense } = useContext(WalletContext);
 
   const [expense, setExpense] = useState({
     value: '',
-    currency: currencies,
+    currency: currencies[0],
     method: methods[0],
     tag: tags[0],
     description: '',
@@ -20,9 +21,10 @@ export default function Header() {
     }))
   }
 
-  function handleSubmitExpense(e) {
+  async function handleSubmitExpense(e) {
     e.preventDefault();
-    console.log(expense);
+    const exchange = await getExchange(expense.currency);
+    addExpense({...expense, exchange});
   }
 
   return (
