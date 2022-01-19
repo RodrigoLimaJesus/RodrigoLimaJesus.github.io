@@ -1,0 +1,36 @@
+@keyframes rotate-90-degree {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(-90deg)}
+}
+
+@keyframes rotate-0-degree {
+  from {transform: rotate(-90deg)}
+  to {transform: rotate(0deg)}
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.7rem;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.header h1 {
+  font-size: inherit;
+}
+
+.btn-header-menu {
+  display: flex;
+  align-items: center;
+  animation-duration: 1s;
+  animation-name: rotate-0-degree;
+  transform: rotate(0deg);
+}
+
+.btn-header-menu.show-menu {
+  animation-duration: 1s;
+  animation-name: rotate-90-degree;
+  transform: rotate(90deg);
+}
