@@ -4,10 +4,22 @@
   box-sizing: border-box;
 }
 
+:root {
+  --app-bg-dark: rgb(10, 10, 10);
+  --app-txt-in-dark: rgb(240, 240, 240);
+  --orange: rgb(248, 120, 49);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
 body {
   font-family: sans-serif;
-  background-color: black;
-  color: white;
+  background-color: var(--app-bg-dark);
+  color: var(--app-txt-in-dark);
 }
 
 button {
@@ -19,5 +31,5 @@ button {
 }
 
 .orange {
-  color: #F87831;
+  color: var(--orange);
 }

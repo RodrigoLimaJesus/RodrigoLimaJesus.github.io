@@ -1,11 +1,28 @@
+:root {
+  --width-side-bar: 60vw;
+  --animation-time: 0.8s;
+}
+
 @keyframes rotate-90-degree {
-  from {transform: rotate(0deg)}
-  to {transform: rotate(-90deg)}
+  from {
+    transform: rotate(0deg);
+    right: 0vw;
+  }
+  to {
+    transform: rotate(-90deg);
+    right: var(--width-side-bar);
+  }
 }
 
 @keyframes rotate-0-degree {
-  from {transform: rotate(-90deg)}
-  to {transform: rotate(0deg)}
+  from {
+    transform: rotate(-90deg);
+    right: var(--width-side-bar);
+  }
+  to {
+    transform: rotate(0deg);
+    right: 0vw;
+  }
 }
 
 .header {
@@ -22,15 +39,20 @@
 }
 
 .btn-header-menu {
+  position: relative;
   display: flex;
   align-items: center;
-  animation-duration: 1s;
+  animation-duration: var(--animation-time);
   animation-name: rotate-0-degree;
+  right: 0vw;
   transform: rotate(0deg);
 }
 
-.btn-header-menu.show-menu {
-  animation-duration: 1s;
+.show-menu {
+  position: relative;
+  animation-duration: var(--animation-time);
   animation-name: rotate-90-degree;
+  right: var(--width-side-bar);
   transform: rotate(90deg);
+  z-index: 1;
 }

@@ -1,0 +1,54 @@
+@keyframes show-side-bar {
+  from {width: 0vw}
+  to {width: var(--width-side-bar)}
+}
+
+@keyframes hide-side-bar {
+  from {width: var(--width-side-bar)}
+  to {width: 0vw}
+}
+
+.side-bar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(36, 36, 36);
+  height: 100vh;
+  top: 0;
+  right: 0;
+  animation-name: hide-side-bar;
+  animation-duration: var(--animation-time);
+  width: 0vw;
+}
+
+.side-bar > img {
+  width: 60%;
+  box-shadow: rgba(255, 255, 255, 0.795) 0 0 1rem 0.1rem;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.side-bar nav {
+  width: 90%;
+  font-size: 1.5rem;
+}
+
+.side-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 15px 0;
+}
+
+.side-bar svg {
+  margin-right: 15px;
+}
+
+.show-side-bar {
+  box-shadow: 0 0 0 100rem rgba(80, 80, 80, 0.795);
+  animation-name: show-side-bar;
+  animation-duration: var(--animation-time);
+  width: var(--width-side-bar);
+}
