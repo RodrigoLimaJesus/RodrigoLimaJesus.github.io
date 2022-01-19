@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <h1>Rodrigo <span className="blue">Lima</span></h1>
+      <h1>Rodrigo <span className="light-green">Lima</span></h1>
 
       <button
         type="button"
