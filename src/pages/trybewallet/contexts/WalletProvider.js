@@ -5,22 +5,11 @@ import { getCurrencies } from "../services/currenciesApi";
 
 export default function WalletProvider({ children }) {
   const [isMounted, setIsMounted] = useState(false);
-  const [currencies, setCurrencies] = useState([]);
+  const [currencies, setCurrencies] = useState(['BRL']);
   const [expenses, setExpenses] = useState([]);
 
   const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Trasnporte', 'Saúde'];
   const methods = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
-
-  const [expense, setExpense] = useState({
-    value: 0,
-    currency: currencies[0],
-    method: methods[0],
-    tag: tags[0],
-    description: '',
-  });
-
-  const [expenseToEdit, setExpenseToEdit] = useState();
-
   const defaultValues = {
     value: 0,
     currency: currencies[0],
@@ -29,30 +18,23 @@ export default function WalletProvider({ children }) {
     description: '',
   };
 
+  const [expense, setExpense] = useState(defaultValues);
+
   useEffect(() => {
-    async function fetchCurrencies() {
+    const currenciesToIgnore = ['USDT'];
+
+    async function initialFetchs() {
       const response = await getCurrencies();
-      setCurrencies(['BRL', ...response.filter(currency => currency !== 'USDT')]);
-      setIsMounted(true);
+      setCurrencies(prevState => [
+        ...prevState,
+        ...response.filter(currency => !currenciesToIgnore.includes(currency))
+      ]);
     }
-
-    fetchCurrencies();
-  }, []);
-
-  useEffect(() => {
-    setExpense((prevState) => ({...prevState, currency: currencies[0]}))
-  }, [currencies]);
-
-  useEffect(() => {
-    if (expenseToEdit) {
-      setExpense({...expenseToEdit, isEditing: true});
-    }
-  }, [expenseToEdit]);
-
-  useEffect(() => {
     if (!isMounted) {
+      initialFetchs();
       const storageExpenses = localStorage.getItem('trybewallet-expenses');
       setExpenses(JSON.parse(storageExpenses) || [])
+      setIsMounted(true);
     }
   }, [isMounted]);
 
@@ -69,29 +51,25 @@ export default function WalletProvider({ children }) {
       }
     ]);
     setExpense(defaultValues);
-    setExpenseToEdit(undefined);
   }
 
   function rmvExpense({ target }) {
     const filtredExpenses = expenses.filter(({ id }) => id !== Number(target.id) );
-    const fixIds = filtredExpenses.map((expense, index) => ({...expense, id: index}));
-    
-    setExpenses(fixIds);
+    const adjustedIds = filtredExpenses.map((expense, index) => ({...expense, id: index}));
+    setExpenses(adjustedIds);
     setExpense(defaultValues);
-    setExpenseToEdit(undefined);
   }
 
   function editExpense(expenseData) {
-    setExpenses(expenses.map((teste) => {
-      if (teste.id === expense.id) {
+    setExpenses(expenses.map(curr => {
+      if (curr.id === expense.id) {
         return ({...expenseData, isEditing: false});
       }
 
-      return expenseData;
+      return curr;
     }));
 
     setExpense(defaultValues);
-    setExpenseToEdit(undefined);
   }
 
   return isMounted && (
@@ -101,8 +79,6 @@ export default function WalletProvider({ children }) {
       tags,
       expenses,
       expense,
-      expenseToEdit,
-      setExpenseToEdit,
       setExpense,
       addExpense,
       rmvExpense,

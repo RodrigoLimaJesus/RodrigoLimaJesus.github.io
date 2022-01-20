@@ -34,6 +34,9 @@ export default function Header() {
 
   return (
     <header>
+      <div>
+        <h1>TrybeWallet</h1>
+      </div>
       <form onSubmit={ handleSubmitExpense }>
         <label htmlFor="value">
           Valor:
@@ -48,12 +51,7 @@ export default function Header() {
 
         <label htmlFor="currency">
           Moeda:
-          <select
-            id="currency"
-            name="currency"
-            onChange={ handleInputChange }
-            defaultValue={ expense.currency }
-          >
+          <select id="currency" name="currency" onChange={ handleInputChange }>
             {currencies.map(currency => (
               <option key={ currency } value={ currency }>{currency}</option>
             ))}
@@ -62,26 +60,18 @@ export default function Header() {
 
         <label htmlFor="method">
           Método de pagamento:
-          <select
-            id="method"
-            name="method"
-            onChange={ handleInputChange }
-          >
+          <select id="method" name="method" onChange={ handleInputChange }>
             {methods.map(method => (
-              <option key={ method } value={ method } selected={ expense.method === method }>{method}</option>
+              <option key={ method } value={ method }>{method}</option>
             ))}
           </select>
         </label>
 
         <label htmlFor="tag">
           Tag:
-          <select
-            id="tag"
-            name="tag"
-            onChange={ handleInputChange }
-          >
+          <select id="tag" name="tag" onChange={ handleInputChange }>
           {tags.map(tag => (
-              <option key={ tag } value={ tag } selected={ expense.tag === tag }>{tag}</option>
+              <option key={ tag } value={ tag }>{tag}</option>
             ))}
           </select>
         </label>
