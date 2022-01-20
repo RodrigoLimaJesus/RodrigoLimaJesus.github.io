@@ -1,18 +1,18 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
 import WalletContext from "../contexts/WalletContext";
 import { getExchange } from "../services/currenciesApi";
 
 export default function Header() {
-  const { currencies, methods, tags, addExpense } = useContext(WalletContext);
-
-  const [expense, setExpense] = useState({
-    value: '',
-    currency: currencies[0],
-    method: methods[0],
-    tag: tags[0],
-    description: '',
-  })
+  const {
+    currencies,
+    methods,
+    tags,
+    addExpense,
+    expense,
+    setExpense,
+    editExpense,
+  } = useContext(WalletContext);
 
   function handleInputChange({ target }) {
     setExpense((prevState) => ({
@@ -24,8 +24,13 @@ export default function Header() {
   async function handleSubmitExpense(e) {
     e.preventDefault();
     const exchange = await getExchange(expense.currency);
-    addExpense({...expense, exchange});
+    if (expense.isEditing) {
+      editExpense({...expense, exchange})
+    } else {
+      addExpense({...expense, exchange});
+    }
   }
+
 
   return (
     <header>
@@ -47,6 +52,7 @@ export default function Header() {
             id="currency"
             name="currency"
             onChange={ handleInputChange }
+            defaultValue={ expense.currency }
           >
             {currencies.map(currency => (
               <option key={ currency } value={ currency }>{currency}</option>
@@ -62,7 +68,7 @@ export default function Header() {
             onChange={ handleInputChange }
           >
             {methods.map(method => (
-              <option key={ method } value={ method }>{method}</option>
+              <option key={ method } value={ method } selected={ expense.method === method }>{method}</option>
             ))}
           </select>
         </label>
@@ -75,7 +81,7 @@ export default function Header() {
             onChange={ handleInputChange }
           >
           {tags.map(tag => (
-              <option key={ tag } value={ tag }>{tag}</option>
+              <option key={ tag } value={ tag } selected={ expense.tag === tag }>{tag}</option>
             ))}
           </select>
         </label>
@@ -92,7 +98,7 @@ export default function Header() {
         </label>
 
         <button type="submit">
-          Adicionar despesa
+          {expense.isEditing ? 'Editar Despesa' : 'Adicionar despesa'}
         </button>
       </form>
     </header>
