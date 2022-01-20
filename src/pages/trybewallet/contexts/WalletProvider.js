@@ -47,7 +47,18 @@ export default function WalletProvider({ children }) {
     if (expenseToEdit) {
       setExpense({...expenseToEdit, isEditing: true});
     }
-  }, [expenseToEdit])
+  }, [expenseToEdit]);
+
+  useEffect(() => {
+    if (!isMounted) {
+      const storageExpenses = localStorage.getItem('trybewallet-expenses');
+      setExpenses(JSON.parse(storageExpenses) || [])
+    }
+  }, [isMounted]);
+
+  useEffect(() => {
+    localStorage.setItem('trybewallet-expenses',JSON.stringify(expenses))
+  }, [expenses])
 
   function addExpense(expenseData) {
     setExpenses(prevState => [
