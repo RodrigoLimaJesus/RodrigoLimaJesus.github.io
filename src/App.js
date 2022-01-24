@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Wallet from "./pages/trybewallet/pages";
+import Home from "./pages/home";
+import Wallet from "./pages/trybewallet";
 
 export default function App() {
   return (

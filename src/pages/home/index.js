@@ -2,8 +2,13 @@ import React from 'react';
 import { DiJavascript, DiHtml5, DiCss3, DiReact, DiGit } from 'react-icons/di';
 import { SiRedux, SiGithub } from 'react-icons/si';
 
-import Header from '../components/Header';
-import ProgrammigGif from '../images/programming.gif';
+import './styles/index.css';
+import './styles/header.css';
+import './styles/sideBar.css';
+
+import Header from './components/Header';
+import ProgrammigGif from './images/programming.gif';
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const stacksFrontend = [
@@ -46,6 +51,7 @@ export default function Home() {
             <p key={ index }>{`Projeto ${index}`}</p>
           ))}
         </div>
+        <Link to="/trybewallet">trybewallet</Link>
         <h2 className="light-green">{"</Projetos>"}</h2>
       </div>
     </div>
