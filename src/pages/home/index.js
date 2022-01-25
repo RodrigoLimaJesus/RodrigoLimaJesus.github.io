@@ -31,7 +31,9 @@ export default function Home() {
           src={ProgrammigGif}
           alt="Gif de pessoa programando"
         />
-        <p>Sou brasileiro natural de Manaus/Am, atualmente estudo desenvolvimento web na <a href="https://www.betrybe.com/">Trybe</a>, uma escola que vai além do ensino padrão e incentiva muito a comunicação. Sou formado pela mesma como dev front-end Jr e agora me aprofundo nos conhecimentos do back-end para dar início à carreira full-stack.</p>
+        <p>
+          Sou brasileiro natural de Manaus/Am, atualmente estudo engenharia da computação na Universidade Federal do Amazonas e desenvolvimento web na <a href="https://www.betrybe.com/">Trybe</a>, uma escola que vai além do ensino tradicional e incentiva muito o desenvolvimento das soft skills. Sou formado pela mesma como desenvolvedor front-end Jr e agora me aprofundo nos conhecimentos do back-end para dar início à carreira full-stack.
+        </p>
       </div>
 
       <div className="container skills-container">
