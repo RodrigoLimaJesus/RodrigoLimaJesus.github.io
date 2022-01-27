@@ -8,6 +8,8 @@ export default function Header() {
   const {
     placeholders,  currencies,  methods,  tags,  addExpense,  editExpense, editInfo
   } = useContext(WalletContext);
+
+  const { expense, isEditing } = editInfo;
   
   const [value, setValue] = useState('');
   const [currency, setCurrency] = useState('');
@@ -29,8 +31,6 @@ export default function Header() {
 
   async function handleSubmitExpense(e) {
     e.preventDefault();
-    const { expense, isEditing } = editInfo;
-    console.log(expense)
     const expenseData = {
       id: expense.id,
       value: value || 0,
@@ -113,7 +113,7 @@ export default function Header() {
         </label>
 
         <button type="submit">
-          {editInfo.isEditing ? 'Editar Despesa' : 'Adicionar despesa'}
+          {isEditing ? 'Editar Despesa' : 'Adicionar despesa'}
         </button>
       </form>
     </header>

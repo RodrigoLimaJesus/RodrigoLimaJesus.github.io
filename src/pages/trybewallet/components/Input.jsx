@@ -2,13 +2,7 @@ import React from 'react';
 
 export default function Input(props) {
   const {
-    label,
-    id,
-    placeholder,
-    value,
-    onChange,
-    detailId,
-    options,
+    label, id, placeholder, value, onChange, detailId, options
   } = props;
 
   return (

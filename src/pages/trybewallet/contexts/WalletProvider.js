@@ -1,24 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
-import WalletContext from "./WalletContext";
-import { getCurrencies } from "../services/currenciesApi";
+import WalletContext from './WalletContext';
+import { getCurrencies } from '../services/currenciesApi';
 
 export default function WalletProvider({ children }) {
   const [isMounted, setIsMounted] = useState(false);
   const [currencies, setCurrencies] = useState(['BRL']);
   const [expenses, setExpenses] = useState([]);
-  const [editInfo, setEditInfo] = useState({
-    isEditing: false,
-    expense: {},
-  });
+  const [editInfo, setEditInfo] = useState({ isEditing: false, expense: {} });
 
   const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Trasnporte', 'Saúde'];
   const methods = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
-  const placeholders = {
-    currency: currencies[0],
-    method: methods[0],
-    tag: tags[0],
-  };
+  const placeholders = { currency: currencies[0], method: methods[0], tag: tags[0] };
 
   useEffect(() => {
     const currenciesToIgnore = ['USDT'];
@@ -33,22 +26,19 @@ export default function WalletProvider({ children }) {
     if (!isMounted) {
       initialFetchs();
       const storageExpenses = localStorage.getItem('trybewallet-expenses');
-      setExpenses(JSON.parse(storageExpenses) || [])
+      setExpenses(JSON.parse(storageExpenses) || []);
       setIsMounted(true);
     }
   }, [isMounted]);
 
   useEffect(() => {
-    localStorage.setItem('trybewallet-expenses',JSON.stringify(expenses))
+    localStorage.setItem('trybewallet-expenses',JSON.stringify(expenses));
   }, [expenses])
 
   function addExpense(expenseData) {
     setExpenses(prevState => [
       ...prevState,
-      {
-        ...expenseData,
-        id: prevState.length,
-      }
+      { ...expenseData, id: prevState.length }
     ]);
   }
 
@@ -59,14 +49,8 @@ export default function WalletProvider({ children }) {
   }
 
   function editExpense(expenseData) {
-    setExpenses(expenses.map(curr => {
-      if (curr.id === expenseData.id) {
-        return ({...expenseData});
-      }
-
-      return curr;
-    }));
-    setEditInfo({isEditing: false, expense: {}});
+    setExpenses(expenses.map(curr => (curr.id === expenseData.id) ? {...expenseData} : curr));
+    setEditInfo({ isEditing: false, expense: {} });
   }
 
   return isMounted && (
