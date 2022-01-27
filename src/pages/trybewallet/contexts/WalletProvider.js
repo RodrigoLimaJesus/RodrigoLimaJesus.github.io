@@ -7,18 +7,18 @@ export default function WalletProvider({ children }) {
   const [isMounted, setIsMounted] = useState(false);
   const [currencies, setCurrencies] = useState(['BRL']);
   const [expenses, setExpenses] = useState([]);
+  const [editInfo, setEditInfo] = useState({
+    isEditing: false,
+    expense: {},
+  });
 
   const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Trasnporte', 'Saúde'];
   const methods = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
-  const defaultValues = {
-    value: 0,
+  const placeholders = {
     currency: currencies[0],
     method: methods[0],
     tag: tags[0],
-    description: '',
   };
-
-  const [expense, setExpense] = useState(defaultValues);
 
   useEffect(() => {
     const currenciesToIgnore = ['USDT'];
@@ -46,30 +46,27 @@ export default function WalletProvider({ children }) {
     setExpenses(prevState => [
       ...prevState,
       {
-      id: prevState.length,
-      ...expenseData,
+        ...expenseData,
+        id: prevState.length,
       }
     ]);
-    setExpense(defaultValues);
   }
 
   function rmvExpense({ target }) {
     const filtredExpenses = expenses.filter(({ id }) => id !== Number(target.id) );
     const adjustedIds = filtredExpenses.map((expense, index) => ({...expense, id: index}));
     setExpenses(adjustedIds);
-    setExpense(defaultValues);
   }
 
   function editExpense(expenseData) {
     setExpenses(expenses.map(curr => {
-      if (curr.id === expense.id) {
-        return ({...expenseData, isEditing: false});
+      if (curr.id === expenseData.id) {
+        return ({...expenseData});
       }
 
       return curr;
     }));
-
-    setExpense(defaultValues);
+    setEditInfo({isEditing: false, expense: {}});
   }
 
   return isMounted && (
@@ -78,8 +75,9 @@ export default function WalletProvider({ children }) {
       methods,
       tags,
       expenses,
-      expense,
-      setExpense,
+      placeholders,
+      editInfo,
+      setEditInfo,
       addExpense,
       rmvExpense,
       editExpense,

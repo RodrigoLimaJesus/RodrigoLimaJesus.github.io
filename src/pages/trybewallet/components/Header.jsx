@@ -1,36 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 
-import WalletContext from "../contexts/WalletContext";
-import { getExchange } from "../services/currenciesApi";
+import WalletContext from '../contexts/WalletContext';
+import { getExchange } from '../services/currenciesApi';
+import Input from './Input';
 
 export default function Header() {
   const {
-    currencies,
-    methods,
-    tags,
-    addExpense,
-    expense,
-    setExpense,
-    editExpense,
+    placeholders,  currencies,  methods,  tags,  addExpense,  editExpense, editInfo
   } = useContext(WalletContext);
+  
+  const [value, setValue] = useState('');
+  const [currency, setCurrency] = useState('');
+  const [method, setMethod] = useState('');
+  const [tag, setTag] = useState('');
+  const [description, setDescription] = useState('');
+  
+  useEffect(() => {
+    const { expense, isEditing } = editInfo;
 
-  function handleInputChange({ target }) {
-    setExpense((prevState) => ({
-      ...prevState,
-      [target.name]: target.value,
-    }))
-  }
+    if (isEditing) {
+      setValue(expense.value);
+      setCurrency(expense.currency);
+      setMethod(expense.method);
+      setTag(expense.tag);
+      setDescription(expense.description);
+    }
+  }, [editInfo])
 
   async function handleSubmitExpense(e) {
     e.preventDefault();
-    const exchange = await getExchange(expense.currency);
-    if (expense.isEditing) {
-      editExpense({...expense, exchange})
-    } else {
-      addExpense({...expense, exchange});
+    const { expense, isEditing } = editInfo;
+    console.log(expense)
+    const expenseData = {
+      id: expense.id,
+      value: value || 0,
+      currency: currency || placeholders.currency,
+      method: method || placeholders.method,
+      tag: tag || placeholders.tag,
+      description,
+    };
+    
+    if (currencies.includes(expenseData.currency)) {
+      const exchange = await getExchange(expenseData.currency);
+
+      if (isEditing) {
+        editExpense({ ...expenseData, exchange })
+      } else {
+        addExpense({ ...expenseData, exchange });
+      }
+      setValue('');
+      setCurrency('');
+      setMethod('');
+      setTag('');
+      setDescription('');
     }
   }
-
 
   return (
     <header>
@@ -43,52 +67,53 @@ export default function Header() {
           <input
             type="number"
             id="value"
-            name="value"
-            value={ expense.value }
-            onChange={ handleInputChange }
+            value={ value }
+            onChange={ (e) => setValue(e.target.value) }
           />
         </label>
 
-        <label htmlFor="currency">
-          Moeda:
-          <select id="currency" name="currency" onChange={ handleInputChange }>
-            {currencies.map(currency => (
-              <option key={ currency } value={ currency }>{currency}</option>
-            ))}
-          </select>
-        </label>
+        <Input
+          label="Moeda:"
+          id="currency"
+          placeholder={ placeholders.currency }
+          value={ currency }
+          onChange={ (e) => setCurrency(e.target.value) }
+          detailId="currencies"
+          options={ currencies }
+        />
 
-        <label htmlFor="method">
-          Método de pagamento:
-          <select id="method" name="method" onChange={ handleInputChange }>
-            {methods.map(method => (
-              <option key={ method } value={ method }>{method}</option>
-            ))}
-          </select>
-        </label>
+        <Input
+          label="Método de pagamento:"
+          id="method"
+          placeholder={ placeholders.method }
+          value={ method }
+          onChange={ (e) => setMethod(e.target.value) }
+          detailId="methods"
+          options={ methods }
+        />
 
-        <label htmlFor="tag">
-          Tag:
-          <select id="tag" name="tag" onChange={ handleInputChange }>
-          {tags.map(tag => (
-              <option key={ tag } value={ tag }>{tag}</option>
-            ))}
-          </select>
-        </label>
+        <Input
+          label="Tag:"
+          id="tag"
+          placeholder={ placeholders.tag }
+          value={ tag }
+          onChange={ (e) => setTag(e.target.value) }
+          detailId="tags"
+          options={ tags }
+        />
 
         <label htmlFor="description">
           Descrição:
           <input
             type="text"
             id="description"
-            name="description"
-            value={ expense.description }
-            onChange={ handleInputChange }
+            value={ description }
+            onChange={ (e) => setDescription(e.target.value) }
           />
         </label>
 
         <button type="submit">
-          {expense.isEditing ? 'Editar Despesa' : 'Adicionar despesa'}
+          {editInfo.isEditing ? 'Editar Despesa' : 'Adicionar despesa'}
         </button>
       </form>
     </header>

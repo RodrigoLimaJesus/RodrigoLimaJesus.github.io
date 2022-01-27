@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import WalletContext from "../contexts/WalletContext";
 
 export default function Table() {
-  const { expenses, rmvExpense, setExpense } = useContext(WalletContext);
+  const { expenses, rmvExpense, setEditInfo } = useContext(WalletContext);
 
   return (
     <table>
@@ -36,7 +36,10 @@ export default function Table() {
             <td>{Number(value) * Number(exchange.ask)}</td>
             <td>{conversionCurrency}</td>
             <td>
-              <button type="button" onClick={ () => setExpense({ ...expense, isEditing: true }) }>
+              <button
+                type="button"
+                onClick={ () => setEditInfo({isEditing: true, expense}) }
+              >
                 Editar
               </button>
               <button type="button" onClick={ rmvExpense } id={ expense.id }>
