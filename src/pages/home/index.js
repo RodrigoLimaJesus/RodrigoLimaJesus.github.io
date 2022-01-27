@@ -37,24 +37,24 @@ export default function Home() {
       </div>
 
       <div className="container skills-container">
-        <h2 className="light-green">{"<Frontend>"}</h2>
+        <h2 className="light-blue">{"<Frontend>"}</h2>
         <div>
           {stacksFrontend.map(({name, Icon, color}) => (
             <span key={ name } className={ color }><Icon />{name}</span>
           ))}
         </div>
-        <h2 className="light-green">{"</Frontend>"}</h2>
+        <h2 className="light-blue">{"</Frontend>"}</h2>
       </div>
 
       <div className="container projects-container">
-        <h2 className="light-green">{"<Projetos>"}</h2>
+        <h2 className="light-blue">{"<Projetos>"}</h2>
         <div>
           {projects.map((_, index) => (
             <p key={ index }>{`Projeto ${index}`}</p>
           ))}
         </div>
         <Link to="/trybewallet">trybewallet</Link>
-        <h2 className="light-green">{"</Projetos>"}</h2>
+        <h2 className="light-blue">{"</Projetos>"}</h2>
       </div>
     </div>
   );

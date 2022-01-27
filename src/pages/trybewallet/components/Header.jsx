@@ -57,17 +57,16 @@ export default function Header() {
   }
 
   return (
-    <header>
-      <div>
-        <h1>TrybeWallet</h1>
-      </div>
-      <form onSubmit={ handleSubmitExpense }>
+    <header className="header-wallet">
+      <h1><span className="green">Trybe</span>Wallet</h1>
+      <form onSubmit={ handleSubmitExpense } className="expense-form">
         <label htmlFor="value">
           Valor:
           <input
             type="number"
             id="value"
             value={ value }
+            placeholder="0"
             onChange={ (e) => setValue(e.target.value) }
           />
         </label>

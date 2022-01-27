@@ -5,10 +5,15 @@
 }
 
 :root {
-  --app-bg-dark: #1e3250;
+  --app-bg-dark: rgb(30, 50, 80);
   --app-txt-in-dark: rgb(240, 240, 240);
+  --app-txt-in-light: rgb(40, 40, 40);
   --orange: rgb(248, 120, 49);
   --yellow: rgb(239, 216, 29);
+  --green: rgb(14, 236, 14);
+  --light-blue: rgb(79, 240, 250);
+  --blue: rgb(79, 180, 214);
+  --purple: rgb(200, 120, 240);
 }
 
 .orange {
@@ -20,20 +25,20 @@
 }
 
 .green {
-  color: rgb(14, 236, 14);
+  color: var(--green);
 }
 
-.light-green {
-  color: rgb(79, 240, 250);
+.light-blue {
+  color: var(--light-blue);
 }
 
 .blue {
-  color: rgb(79, 180, 214);
+  color: var(--blue);
 }
 
 
 .purple {
-  color: rgb(200, 120, 240);
+  color: var(--purple);
 }
 
 body {

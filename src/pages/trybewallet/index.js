@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './styles/header.css';
+
 import Header from './components/Header';
 import Table from './components/Table';
 
