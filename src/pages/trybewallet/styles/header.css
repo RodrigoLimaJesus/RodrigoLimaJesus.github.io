@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
 }
 
 .header-wallet h1 {
@@ -12,9 +11,8 @@
 
 .expense-form {
   display: flex;
-  align-self: flex-start;
   align-items: center;
-  margin: 15px;
+  margin-block: 20px;
 }
 
 .expense-form label {

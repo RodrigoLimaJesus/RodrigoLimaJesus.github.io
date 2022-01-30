@@ -15,5 +15,7 @@ export async function getExchange(currency) {
   return ({
     name: 'Real Brasileiro/Real Brasileiro',
     ask: '1',
+    code: 'BRL',
+    codein: 'BRL',
   })
 }

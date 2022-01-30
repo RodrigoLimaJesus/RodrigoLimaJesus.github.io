@@ -1,29 +1,31 @@
 import React, { useContext } from 'react';
 
-import WalletContext from "../contexts/WalletContext";
+import { BsFillTrashFill, BsPencilFill } from 'react-icons/bs';
+import { TiArrowRightThick } from 'react-icons/ti';
+
+import WalletContext from '../contexts/WalletContext';
 
 export default function Table() {
   const { expenses, rmvExpense, setEditInfo } = useContext(WalletContext);
 
   return (
-    <table>
+    <table className="wallet-table">
       <thead>
         <tr>
           <th>Descrição</th>
           <th>Tag</th>
-          <th>Método de pagamento</th>
+          <th>Método</th>
           <th>Valor</th>
-          <th>Moeda</th>
-          <th>Câmbio Utilizado</th>
+          <th>Câmbio</th>
           <th>Valor convertido</th>
-          <th>Moeda de conversão</th>
+          <th>Conversão</th>
           <th>Editar/Excluir</th>
         </tr>
       </thead>
       <tbody>
         {expenses.map((expense, index) => {
+          console.log(expense);
           const { exchange, value } = expense;
-          const [exchangeUsed, conversionCurrency] = exchange.name.split('/');
           
           return (
           <tr key={ index }>
@@ -31,19 +33,20 @@ export default function Table() {
             <td>{expense.tag}</td>
             <td>{expense.method}</td>
             <td>{value}</td>
-            <td>{exchangeUsed}</td>
-            <td>{exchange.ask}</td>
-            <td>{Number(value) * Number(exchange.ask)}</td>
-            <td>{conversionCurrency}</td>
+            <td>{Number(exchange.ask).toFixed(2)}</td>
+            <td>{(Number(value) * Number(exchange.ask)).toFixed(2)}</td>
             <td>
+              {`${exchange.code} `} <TiArrowRightThick /> {` ${exchange.codein}`}
+            </td>
+            <td className="edit-delete-btns">
               <button
                 type="button"
                 onClick={ () => setEditInfo({isEditing: true, expense}) }
               >
-                Editar
+                <BsPencilFill />
               </button>
               <button type="button" onClick={ rmvExpense } id={ expense.id }>
-                Excluir
+                <BsFillTrashFill />
               </button>
             </td>
           </tr>
