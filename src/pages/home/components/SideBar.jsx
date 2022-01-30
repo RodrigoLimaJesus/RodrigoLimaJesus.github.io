@@ -3,11 +3,10 @@ import { BsLinkedin, BsGithub } from 'react-icons/bs';
 
 import MyImage from '../images/eu.jpeg';
 
-export default function SideBar({ isVisible }) {
-  const classVisible = isVisible && 'show-side-bar';
+export default function SideBar({ classSideBar }) {
 
   return (
-    <div className={`side-bar ${classVisible}`} >
+    <div className={`side-bar ${classSideBar}`} >
       <div>
         <img src={ MyImage } alt="Minha imagem de perfil" />
         <nav>

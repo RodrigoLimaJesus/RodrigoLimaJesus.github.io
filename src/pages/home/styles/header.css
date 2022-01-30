@@ -42,17 +42,21 @@
   position: relative;
   display: flex;
   align-items: center;
-  animation-duration: var(--animation-time);
-  animation-name: rotate-0-degree;
   right: 0vw;
-  transform: rotate(0deg);
 }
 
 .show-menu {
-  position: relative;
+  position: fixed;
   animation-duration: var(--animation-time);
   animation-name: rotate-90-degree;
   right: var(--width-side-bar);
+  margin-right: 10px;
   transform: rotate(90deg);
   z-index: 1;
+}
+
+.hide-menu {
+  animation-duration: var(--animation-time);
+  animation-name: rotate-0-degree;
+  transform: rotate(0deg);
 }

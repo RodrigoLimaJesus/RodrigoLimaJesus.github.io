@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --app-bg-dark: rgb(30, 50, 80);
+  --app-txt-in-dark: rgb(240, 240, 240);
+  --app-txt-in-light: rgb(40, 40, 40);
+  --orange: rgb(248, 120, 49);
+  --yellow: rgb(239, 216, 29);
+  --green: rgb(14, 236, 14);
+  --light-blue: rgb(79, 240, 250);
+  --blue: rgb(79, 180, 214);
+  --purple: rgb(200, 120, 240);
+}
+
+.orange {
+  color: var(--orange);
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+.green {
+  color: var(--green);
+}
+
+.light-blue {
+  color: var(--light-blue);
+}
+
+.blue {
+  color: var(--blue);
+}
+
+
+.purple {
+  color: var(--purple);
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--app-bg-dark);
+  color: var(--app-txt-in-dark);
+}
+
+a {
+  text-decoration: none;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+a:visited {
+  color: var(--yellow);
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}

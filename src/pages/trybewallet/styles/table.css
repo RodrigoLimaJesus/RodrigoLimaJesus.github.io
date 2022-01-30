@@ -1,0 +1,43 @@
+.wallet-table {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 3vw;
+}
+
+.wallet-table tr {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.wallet-table th,
+.wallet-table td {
+  width: 12%;
+}
+
+.wallet-table tbody tr {
+  margin-block: 5px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.wallet-table tbody td {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.wallet-table tbody tr:nth-child(odd) {
+  background-color: rgb(90, 156, 156);
+}
+
+.wallet-table tbody tr:nth-child(even) {
+  color: var(--app-txt-in-light);
+  background-color: rgb(96, 218, 255);
+}
+
+.wallet-table .edit-delete-btns {
+  display: flex;
+  justify-content: space-around;
+}
