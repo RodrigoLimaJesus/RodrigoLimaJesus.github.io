@@ -24,7 +24,6 @@ export default function Table() {
       </thead>
       <tbody>
         {expenses.map((expense, index) => {
-          console.log(expense);
           const { exchange, value } = expense;
           
           return (

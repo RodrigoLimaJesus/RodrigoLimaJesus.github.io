@@ -1,6 +1,8 @@
 import React from 'react';
 import { DiJavascript, DiHtml5, DiCss3, DiReact, DiGit } from 'react-icons/di';
 import { SiRedux, SiGithub } from 'react-icons/si';
+import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import './styles/index.css';
 import './styles/header.css';
@@ -8,7 +10,7 @@ import './styles/sideBar.css';
 
 import Header from './components/Header';
 import ProgrammigGif from './images/programming.gif';
-import { Link } from "react-router-dom";
+import Trybewallet from './images/trybewallet.png';
 
 export default function Home() {
   const stacksFrontend = [
@@ -21,7 +23,9 @@ export default function Home() {
     {name: 'GIT', Icon: DiGit, color: 'orange'},
   ];
 
-  const projects = [];
+  const projects = [
+    {name: 'TrybeWallet', image: Trybewallet, link: './trybewallet', mobile: false, desktop: true},
+  ];
 
   return (
     <div>
@@ -48,12 +52,21 @@ export default function Home() {
 
       <div className="container projects-container">
         <h2 className="light-blue">{"<Projetos>"}</h2>
+        <p>
+          Os projetos com designe apenas para desktop irão possuir o ícone <FaDesktop />, os com designe mobile irão possuir o ícone <FaMobileAlt />, e os com responsividade irão possuir os dois ícones.
+        </p>
         <div>
-          {projects.map((_, index) => (
-            <p key={ index }>{`Projeto ${index}`}</p>
+          {projects.map((project) => (
+            <Link to={ project.link } key={ project.name } className="project-card">
+              <img src={ project.image } alt={ project.name }/>
+              <span>
+                {project.desktop && <FaDesktop />}
+                {project.mobile && <FaMobileAlt />}
+                {project.name}
+              </span>
+            </Link>
           ))}
         </div>
-        <Link to="/trybewallet">trybewallet</Link>
         <h2 className="light-blue">{"</Projetos>"}</h2>
       </div>
     </div>
