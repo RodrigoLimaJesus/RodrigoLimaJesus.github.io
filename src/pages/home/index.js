@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 import './styles/index.css';
 import './styles/header.css';
-import './styles/sideBar.css';
 
 import Header from './components/Header';
 import ProgrammigGif from './images/programming.gif';

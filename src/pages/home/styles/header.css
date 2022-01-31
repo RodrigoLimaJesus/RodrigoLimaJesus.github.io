@@ -6,7 +6,7 @@
 @keyframes rotate-90-degree {
   from {
     transform: rotate(0deg);
-    right: 0vw;
+    right: 0;
   }
   to {
     transform: rotate(-90deg);
@@ -21,7 +21,7 @@
   }
   to {
     transform: rotate(0deg);
-    right: 0vw;
+    right: 0;
   }
 }
 
@@ -42,7 +42,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  right: 0vw;
+  right: 0;
 }
 
 .show-menu {
@@ -59,4 +59,115 @@
   animation-duration: var(--animation-time);
   animation-name: rotate-0-degree;
   transform: rotate(0deg);
+}
+
+/* ---------------- Side bar ----------------------- */
+
+@keyframes show-side-bar {
+  from {width: 0}
+  to {width: var(--width-side-bar)}
+}
+
+@keyframes hide-side-bar {
+  from {width: var(--width-side-bar)}
+  to {width: 0}
+}
+
+.side-bar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: column;
+  background-color: var(--app-bg-dark);
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 0;
+}
+
+.side-bar div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  padding: 10px;
+}
+
+.side-bar img {
+  width: 70%;
+  border-radius: 10px;
+}
+
+.side-bar nav {
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+.side-bar a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 15px 0;
+}
+
+.side-bar svg {
+  margin-right: 10px;
+}
+
+.side-bar span {
+  font-size: 1rem;
+  width: 100%;
+}
+
+.show-side-bar {
+  box-shadow: 0 0 0 100rem rgba(0, 0, 0, 0.7);
+  animation-name: show-side-bar;
+  animation-duration: var(--animation-time);
+  width: var(--width-side-bar);
+}
+
+.hide-side-bar {
+  animation-name: hide-side-bar;
+  animation-duration: var(--animation-time);
+}
+
+@media screen and (min-width: 675px) {
+  .header {
+    margin: 8px;
+    font-size: 2rem;
+  }
+
+  .side-bar img,
+  .side-bar div span,
+  .btn-header-menu {
+    display: none;
+  }
+
+  .side-bar, 
+  .side-bar div,
+  .show-side-bar {
+    position: initial;
+    height: initial;
+    width: initial;
+    padding: initial;
+    box-shadow: none;
+    flex-direction: row;
+  }
+
+  .side-bar nav {
+    display: flex;
+  }
+
+  .side-bar a {
+    justify-content: center;
+    margin-inline: 10px;
+  }
+
+  .side-bar svg {
+    margin-right: 0;
+    margin-inline: 8px;
+  }
 }

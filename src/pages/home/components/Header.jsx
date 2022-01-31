@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { BsLinkedin, BsGithub } from 'react-icons/bs';
 
-import SideBar from './SideBar';
+import MyImage from '../images/eu.jpeg';
 
 export default function Header() {
   const [classSideBar, setClassSideBar] = useState('');
@@ -27,7 +28,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <h1>Rodrigo <span className="light-green">Lima</span></h1>
+      <h1>Rodrigo <span className="light-blue">Lima</span></h1>
 
       <button
         type="button"
@@ -37,7 +38,24 @@ export default function Header() {
         <GiHamburgerMenu />
       </button>
 
-      <SideBar classSideBar={ classSideBar } />
+      <div className={`side-bar ${classSideBar}`} >
+        <div>
+          <img src={ MyImage } alt="Minha imagem de perfil" />
+          <nav>
+            <a href="https://www.linkedin.com/in/rodrigo-lima-jesus/">
+              <BsLinkedin /> Linkedin
+            </a>
+            <a href="https://github.com/RodrigoLimaJesus">
+              <BsGithub /> Github
+            </a>
+          </nav>
+        </div>
+
+        <div>
+          <span>By Rodrigo Lima</span>
+        </div>
+      </div>
+
     </header>
   )
 }
