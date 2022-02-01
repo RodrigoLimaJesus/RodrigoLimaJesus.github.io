@@ -42,10 +42,18 @@ export default function Header() {
         <div>
           <img src={ MyImage } alt="Minha imagem de perfil" />
           <nav>
-            <a href="https://www.linkedin.com/in/rodrigo-lima-jesus/">
+            <a
+              href="https://www.linkedin.com/in/rodrigo-lima-jesus/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <BsLinkedin /> Linkedin
             </a>
-            <a href="https://github.com/RodrigoLimaJesus">
+            <a
+              href="https://github.com/RodrigoLimaJesus"
+              target="_blank"
+              rel="noreferrer"
+            >
               <BsGithub /> Github
             </a>
           </nav>

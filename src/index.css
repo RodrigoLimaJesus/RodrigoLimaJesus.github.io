@@ -6,6 +6,7 @@
 
 :root {
   --app-bg-dark: rgb(30, 50, 80);
+  --app-container-dark: rgb(10, 30, 60);
   --app-txt-in-dark: rgb(240, 240, 240);
   --app-txt-in-light: rgb(40, 40, 40);
   --orange: rgb(248, 120, 49);
@@ -51,6 +52,7 @@ a {
   text-decoration: none;
   color: var(--orange);
   cursor: pointer;
+  transition: 0.5s;
 }
 
 a:visited {
@@ -63,4 +65,10 @@ button {
   color: inherit;
   font-size: inherit;
   cursor: pointer;
+}
+
+@media screen and (min-width: 675px) {
+  a:hover {
+    color: var(--light-blue);
+  }
 }

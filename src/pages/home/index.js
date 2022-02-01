@@ -4,6 +4,8 @@ import { SiRedux, SiGithub } from 'react-icons/si';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+import MyImage from './images/eu.jpeg';
+
 import './styles/index.css';
 import './styles/header.css';
 
@@ -29,13 +31,12 @@ export default function Home() {
   return (
     <div>
       <Header />
+      
       <div className="container apresentation-container">
-        <img
-          src={ProgrammigGif}
-          alt="Gif de pessoa programando"
-        />
+        <img src={ ProgrammigGif } alt="Gif de pessoa programando" className="programmingGif"/>
+        <img src={ MyImage } alt="Minha imagem de perfil" className="profile-image" />
         <p>
-          Sou brasileiro natural de Manaus/Am, atualmente estudo engenharia da computação na Universidade Federal do Amazonas e desenvolvimento web na <a href="https://www.betrybe.com/">Trybe</a>, uma escola que vai além do ensino tradicional e incentiva muito o desenvolvimento das soft skills. Sou formado pela mesma como desenvolvedor front-end Jr e agora me aprofundo nos conhecimentos do back-end para dar início à carreira full-stack.
+          Sou brasileiro natural de Manaus/Am, atualmente estudo engenharia da computação na Universidade Federal do Amazonas e desenvolvimento web na <a href="https://www.betrybe.com/" target="_blank" rel="noreferrer">Trybe</a>, uma escola que vai além do ensino tradicional e incentiva muito o desenvolvimento das soft skills. Sou formado pela mesma como desenvolvedor front-end Jr e agora me aprofundo nos conhecimentos do back-end para dar início à carreira full-stack.
         </p>
       </div>
 
@@ -50,13 +51,16 @@ export default function Home() {
       </div>
 
       <div className="container projects-container">
+        <div className="projects-container-info">
+          <p>
+            Os projetos com designe para desktop têm o ícone <FaDesktop />, para mobile têm o ícone <FaMobileAlt />, e os responsivos possuem os dois ícones.
+          </p>
+          <img src={ ProgrammigGif } alt="Gif de pessoa programando" className="programmingGif"/>
+        </div>
         <h2 className="light-blue">{"<Projetos>"}</h2>
-        <p>
-          Os projetos com designe apenas para desktop irão possuir o ícone <FaDesktop />, os com designe mobile irão possuir o ícone <FaMobileAlt />, e os com responsividade irão possuir os dois ícones.
-        </p>
         <div>
-          {projects.map((project) => (
-            <Link to={ project.link } key={ project.name } className="project-card">
+          {projects.map((project, index) => (
+            <Link to={ project.link } key={ index } className="project-card">
               <img src={ project.image } alt={ project.name }/>
               <span>
                 {project.desktop && <FaDesktop />}
