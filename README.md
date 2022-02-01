@@ -1,10 +1,9 @@
 # Portfólio
-## Este repositório contém o registro do desenvolvimento do meu porfólio. Atualizado regularmente com novas tecnologias e projetos para exposição das minhas habilidades como desenvolvedor web.
+**Este repositório contém o registro do desenvolvimento do meu porfólio. Atualizado regularmente com novas tecnologias e projetos para exposição das minhas habilidades como desenvolvedor web.**
 
-## - Linkedin: <https://www.linkedin.com/in/rodrigo-lima-jesus/>
-## - Link do deploy: <https://rodrigolimajesus.vercel.app/>
+* **Linkedin:** <https://www.linkedin.com/in/rodrigo-lima-jesus/>
+* **Link do deploy:** *<https://rodrigolimajesus.vercel.app/>*
 
-#
 ## Caso tenha interesse em baixar o repositório:
 
 1. Clone o repositório
