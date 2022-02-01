@@ -165,17 +165,20 @@
 
   .side-bar a {
     justify-content: center;
-    margin-inline: 10px;
+    margin: 0 10px;
   }
 
   .side-bar svg {
-    margin-right: 0;
-    margin-inline: 8px;
+    margin: 0 10px;
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 850px) {
   .header {
     font-size: 2.4rem;
+  }
+
+  .side-bar a {
+    font-size: 1.8rem;
   }
 }
