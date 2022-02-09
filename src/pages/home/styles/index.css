@@ -32,6 +32,7 @@
   width: 65%;
   border-radius: 1rem;
   margin-bottom: 5vh;
+  border: 1px solid var(--app-txt-in-dark);
 }
 
 .apresentation-container p {
@@ -88,7 +89,7 @@
 }
 
 .project-card svg {
-  margin-inline-end: 2vw;
+  margin-inline-end: 10px;
 }
 
 @media screen and (min-width: 675px) {
@@ -110,6 +111,7 @@
     width: 30%;
     margin-right: 5vw;
     border-radius: 1rem;
+    border: 1px solid var(--app-txt-in-dark);
   }
 
   .apresentation-container p {

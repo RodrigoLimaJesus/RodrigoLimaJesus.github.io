@@ -58,10 +58,6 @@ export default function Header() {
             </a>
           </nav>
         </div>
-
-        <div>
-          <span>By Rodrigo Lima</span>
-        </div>
       </div>
 
     </header>
