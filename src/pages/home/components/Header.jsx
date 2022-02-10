@@ -27,7 +27,7 @@ export default function Header() {
   }
 
   return (
-    <header className="header">
+    <header className="header-home">
       <h1>Rodrigo <span className="light-blue">Lima</span></h1>
 
       <button
