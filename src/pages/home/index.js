@@ -2,12 +2,14 @@ import React from 'react';
 import { DiJavascript, DiHtml5, DiCss3, DiReact, DiGit } from 'react-icons/di';
 import { SiRedux, SiGithub } from 'react-icons/si';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
+import { AiOutlineMail } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 import MyImage from './images/eu.jpeg';
 
 import './styles/index.css';
 import './styles/header.css';
+import './styles/footer.css';
 
 import Header from './components/Header';
 import ProgrammigGif from './images/programming.gif';
@@ -72,6 +74,11 @@ export default function Home() {
         </div>
         <h2 className="light-blue">{"</Projetos>"}</h2>
       </div>
+
+      <footer className="footer-home">
+        <span>Feito com React, CSS e dedicação.</span>
+        <span>Rodrigo Lima &copy; 2022</span>
+      </footer>
     </div>
   );
 }
