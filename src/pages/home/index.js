@@ -2,7 +2,6 @@ import React from 'react';
 import { DiJavascript, DiHtml5, DiCss3, DiReact, DiGit } from 'react-icons/di';
 import { SiRedux, SiGithub } from 'react-icons/si';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
-import { AiOutlineMail } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 import MyImage from './images/eu.jpeg';
