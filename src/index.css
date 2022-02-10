@@ -50,13 +50,9 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--orange);
+  color: var(--yellow);
   cursor: pointer;
   transition: 0.5s;
-}
-
-a:visited {
-  color: var(--yellow);
 }
 
 button {

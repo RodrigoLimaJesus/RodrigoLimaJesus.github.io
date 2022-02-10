@@ -27,7 +27,7 @@ export default function Header() {
   }
 
   return (
-    <header className="header">
+    <header className="header-home">
       <h1>Rodrigo <span className="light-blue">Lima</span></h1>
 
       <button
@@ -57,10 +57,6 @@ export default function Header() {
               <BsGithub /> Github
             </a>
           </nav>
-        </div>
-
-        <div>
-          <span>By Rodrigo Lima</span>
         </div>
       </div>
 

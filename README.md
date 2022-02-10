@@ -12,3 +12,5 @@
   * `cd portfolio`.
 3. Instale as dependências
   * `npm install`.
+4. Inicie a apicação
+  * `npm start`.

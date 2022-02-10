@@ -25,7 +25,7 @@
   }
 }
 
-.header {
+.header-home {
   display: flex;
   justify-content: space-between;
   background-color: var(--app-container-dark);
@@ -36,7 +36,7 @@
   border-radius: 0 0 1rem 1rem;
 }
 
-.header h1 {
+.header-home h1 {
   font-size: inherit;
 }
 
@@ -79,7 +79,6 @@
   position: fixed;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   text-align: center;
   flex-direction: column;
   background-color: var(--app-container-dark);
@@ -96,11 +95,13 @@
   flex-direction: column;
   width: 80%;
   padding: 10px;
+  margin-top: 40px;
 }
 
 .side-bar img {
   width: 70%;
   border-radius: 10px;
+  border: 1px solid var(--app-txt-in-dark);
 }
 
 .side-bar nav {
@@ -119,11 +120,6 @@
   margin-right: 10px;
 }
 
-.side-bar span {
-  font-size: 1rem;
-  width: 100%;
-}
-
 .show-side-bar {
   box-shadow: 0 0 0 100rem rgba(0, 0, 0, 0.7);
   animation-name: show-side-bar;
@@ -137,13 +133,12 @@
 }
 
 @media screen and (min-width: 675px) {
-  .header {
+  .header-home {
     padding: 15px 30px;
     font-size: 2rem;
   }
 
   .side-bar img,
-  .side-bar div span,
   .btn-header-menu {
     display: none;
   }
@@ -155,6 +150,7 @@
     height: initial;
     width: initial;
     padding: initial;
+    margin: initial;
     box-shadow: none;
     flex-direction: row;
   }
@@ -174,7 +170,7 @@
 }
 
 @media screen and (min-width: 850px) {
-  .header {
+  .header-home {
     font-size: 2.4rem;
   }
 
