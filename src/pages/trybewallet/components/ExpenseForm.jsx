@@ -1,12 +1,21 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { TiArrowLeftThick } from 'react-icons/ti';
 
 import WalletContext from '../contexts/WalletContext';
 import { getExchange } from '../services/currenciesApi';
 import Input from './Input';
 
-export default function Header() {
+export default function ExpenseForm() {
   const {
-    placeholders,  currencies,  methods,  tags,  addExpense,  editExpense, editInfo
+    placeholders,
+    currencies,
+    methods,
+    tags,
+    addExpense,
+    editExpense,
+    editInfo,
+    isFormVisible,
+    setIsFormVisible
   } = useContext(WalletContext);
 
   const { expense, isEditing } = editInfo;
@@ -53,13 +62,22 @@ export default function Header() {
       setMethod('');
       setTag('');
       setDescription('');
+      setIsFormVisible(false);
     }
   }
 
-  return (
-    <header className="header-wallet">
-      <h1><span className="green">Trybe</span>Wallet</h1>
+  return isFormVisible && (
+    <div className="expense-form-container">
       <form onSubmit={ handleSubmitExpense } className="expense-form">
+        <header className="expense-form-header">
+          <button
+            type="button"
+            onClick={ () => setIsFormVisible(false) }
+          >
+            <TiArrowLeftThick />
+          </button>
+          <h2>Dados da despesa</h2>
+        </header>
         <label htmlFor="value">
           Valor:
           <input
@@ -115,6 +133,6 @@ export default function Header() {
           {isEditing ? 'Editar Despesa' : 'Adicionar despesa'}
         </button>
       </form>
-    </header>
-  );
+    </div>
+  )
 }

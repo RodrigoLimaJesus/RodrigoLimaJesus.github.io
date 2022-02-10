@@ -8,6 +8,7 @@ export default function WalletProvider({ children }) {
   const [currencies, setCurrencies] = useState(['BRL']);
   const [expenses, setExpenses] = useState([]);
   const [editInfo, setEditInfo] = useState({ isEditing: false, expense: {} });
+  const [isFormVisible, setIsFormVisible] = useState(true);
 
   const tags = ['Alimentação', 'Lazer', 'Trabalho', 'Trasnporte', 'Saúde'];
   const methods = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
@@ -65,6 +66,8 @@ export default function WalletProvider({ children }) {
       addExpense,
       rmvExpense,
       editExpense,
+      isFormVisible,
+      setIsFormVisible
     }}>
       {children}
     </WalletContext.Provider>

@@ -1,3 +1,86 @@
 .wallet-page {
   margin: 2vw;
 }
+
+.header-wallet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-wallet h1 {
+  font-size: 2.5rem;
+}
+
+.expense-form-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: var(--app-container-dark);
+}
+
+.expense-form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expense-form-header > button {
+  width: fit-content;
+  height: fit-content;
+  transition: 0.5s;
+  font-size: 2rem;
+  margin-inline-end: 10px;
+}
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.expense-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+.expense-form input {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.expense-form > button {
+  font-size: 1rem;
+  background-color: var(--blue);
+  padding: 8px;
+  border-radius: 10px;
+  transition: 0.5s;
+  margin: 9px 0;
+}
+
+.expense-form > button:hover {
+  background-color: var(--light-blue);
+  color: var(--app-txt-in-light);
+}
+
+.expense-add-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--blue);
+  padding: 8px;
+  font-size: 2rem;
+  border-radius: 100rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
