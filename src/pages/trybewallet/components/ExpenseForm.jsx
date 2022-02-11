@@ -1,33 +1,37 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { TiArrowLeftThick } from 'react-icons/ti';
 
 import WalletContext from '../contexts/WalletContext';
 import { getExchange } from '../services/currenciesApi';
 import Input from './Input';
 
-export default function Header() {
+export default function ExpenseForm() {
   const {
-    placeholders,  currencies,  methods,  tags,  addExpense,  editExpense, editInfo
+    placeholders,
+    currencies,
+    methods,
+    tags,
+    addExpense,
+    editExpense,
+    isFormVisible, 
+    setIsFormVisible,
   } = useContext(WalletContext);
-
-  const { expense, isEditing } = editInfo;
   
+  const { expense, isVisible, isEditing } = isFormVisible;
+
   const [value, setValue] = useState('');
   const [currency, setCurrency] = useState('');
   const [method, setMethod] = useState('');
   const [tag, setTag] = useState('');
   const [description, setDescription] = useState('');
-  
-  useEffect(() => {
-    const { expense, isEditing } = editInfo;
 
-    if (isEditing) {
-      setValue(expense.value);
-      setCurrency(expense.currency);
-      setMethod(expense.method);
-      setTag(expense.tag);
-      setDescription(expense.description);
-    }
-  }, [editInfo])
+  useEffect(() => {
+    setValue('' || expense.value);
+    setCurrency('' || expense.currency);
+    setMethod('' || expense.method);
+    setTag('' || expense.tag);
+    setDescription('' || expense.description);
+  }, [expense]);
 
   async function handleSubmitExpense(e) {
     e.preventDefault();
@@ -48,18 +52,22 @@ export default function Header() {
       } else {
         addExpense({ ...expenseData, exchange });
       }
-      setValue('');
-      setCurrency('');
-      setMethod('');
-      setTag('');
-      setDescription('');
+      setIsFormVisible({ isVisible: false, isEditing: false, expense: {} });
     }
   }
 
-  return (
-    <header className="header-wallet">
-      <h1><span className="green">Trybe</span>Wallet</h1>
+  return isVisible && (
+    <div className="expense-form-container">
       <form onSubmit={ handleSubmitExpense } className="expense-form">
+        <header className="expense-form-header">
+          <button
+            type="button"
+            onClick={ () => setIsFormVisible({ isVisible: false, isEditing: false, expense: {} }) }
+          >
+            <TiArrowLeftThick />
+          </button>
+          <h2>Dados da despesa</h2>
+        </header>
         <label htmlFor="value">
           Valor:
           <input
@@ -115,6 +123,6 @@ export default function Header() {
           {isEditing ? 'Editar Despesa' : 'Adicionar despesa'}
         </button>
       </form>
-    </header>
-  );
+    </div>
+  )
 }

@@ -1,0 +1,70 @@
+.expense-form-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  overflow: auto;
+  background-color: rgba(179, 177, 177, 0.5);
+}
+
+.expense-form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expense-form-header > button {
+  width: fit-content;
+  height: fit-content;
+  transition: 0.5s;
+  font-size: 2rem;
+  margin-inline-end: 10px;
+}
+
+.expense-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--app-container-dark);
+  border-radius: 1rem;
+}
+
+.expense-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+.expense-form input {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.expense-form > button {
+  font-size: 1rem;
+  background-color: var(--blue);
+  padding: 8px;
+  border-radius: 10px;
+  transition: 0.5s;
+  margin: 9px 0;
+}
+
+.expense-form > button:hover {
+  background-color: var(--light-blue);
+  color: var(--app-txt-in-light);
+}
+
+@media screen and (min-width: 1024px) {
+  .expense-form {
+    padding: 40px;
+  }
+}
