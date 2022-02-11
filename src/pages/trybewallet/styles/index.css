@@ -26,3 +26,10 @@
   align-items: center;
   justify-content: center;
 }
+
+@media screen and (min-width: 925px) {
+  .expense-add-btn {
+    bottom: 30px;
+    right: 30px;
+  }
+}
