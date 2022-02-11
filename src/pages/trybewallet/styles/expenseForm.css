@@ -1,12 +1,16 @@
 .expense-form-container {
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   margin: auto;
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  background-color: var(--app-container-dark);
+  overflow: auto;
+  background-color: rgba(179, 177, 177, 0.5);
 }
 
 .expense-form-header {
@@ -27,7 +31,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  padding: 20px;
+  background-color: var(--app-container-dark);
+  border-radius: 1rem;
 }
 
 .expense-form label {
@@ -55,4 +61,10 @@
 .expense-form > button:hover {
   background-color: var(--light-blue);
   color: var(--app-txt-in-light);
+}
+
+@media screen and (min-width: 1024px) {
+  .expense-form {
+    padding: 40px;
+  }
 }

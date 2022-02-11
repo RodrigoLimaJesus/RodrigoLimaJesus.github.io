@@ -1,3 +1,8 @@
+.wallet-table-925,
+.wallet-table-1024 {
+  display: none !important;
+}
+
 .wallet-table {
   display: flex;
   flex-direction: column;
@@ -22,13 +27,13 @@
   display: flex;
   justify-content: space-between;
   font-size: 1.1rem;
-  text-align: center;
 }
 
 .wallet-table tbody tr {
   margin-block: 10px;
   padding: 8px;
   border-radius: 10px;
+  text-align: center;
 }
 
 .wallet-table tbody tr:nth-child(odd) {
@@ -40,39 +45,61 @@
   background-color: rgb(96, 218, 255);
 }
 
-.wallet-table tbody td {
-  display: flex;
-  text-overflow: ellipsis;
+.wallet-table td,
+.wallet-table th {
+  width: 30%;
+}
+
+.wallet-table td {
   overflow-x: auto;
   white-space: nowrap;
-  width: 30%;
   font-size: 1rem;
 }
 
-.wallet-table tbody td:nth-child(2) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wallet-table tbody td:nth-child(3) {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.wallet-table tbody td::-webkit-scrollbar-track {
+.wallet-table td::-webkit-scrollbar-track {
   background-color: #F4F4F4;
 }
-.wallet-table tbody td::-webkit-scrollbar {
+.wallet-table td::-webkit-scrollbar {
   height: 6px;
   background: #F4F4F4;
 }
-.wallet-table tbody td::-webkit-scrollbar-thumb {
+.wallet-table td::-webkit-scrollbar-thumb {
   background: #a5a5a5;
 }
 
 .wallet-table .edit-delete-btns {
   display: flex;
   justify-content: space-around;
+}
+
+@media screen and (min-width: 615px) {
+  .wallet-table {
+    padding: 0 10vw;
+  }
+}
+
+@media screen and (min-width: 925px) {
+  .wallet-table-925 {
+    display: initial !important;
+  }
+
+  .wallet-table th {
+    font-size: 1rem;
+  }
+
+  .wallet-table td,
+  .wallet-table th {
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .wallet-table-1024 {
+    display: initial !important;
+  }
+
+  .wallet-table td,
+  .wallet-table th {
+    width: 20%;
+  }
 }
