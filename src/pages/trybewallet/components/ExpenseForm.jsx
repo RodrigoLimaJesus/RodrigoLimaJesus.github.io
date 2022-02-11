@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { TiArrowLeftThick } from 'react-icons/ti';
 
 import WalletContext from '../contexts/WalletContext';
@@ -13,30 +13,25 @@ export default function ExpenseForm() {
     tags,
     addExpense,
     editExpense,
-    editInfo,
-    isFormVisible,
-    setIsFormVisible
+    isFormVisible, 
+    setIsFormVisible,
   } = useContext(WalletContext);
-
-  const { expense, isEditing } = editInfo;
   
+  const { expense, isVisible, isEditing } = isFormVisible;
+
   const [value, setValue] = useState('');
   const [currency, setCurrency] = useState('');
   const [method, setMethod] = useState('');
   const [tag, setTag] = useState('');
   const [description, setDescription] = useState('');
-  
-  useEffect(() => {
-    const { expense, isEditing } = editInfo;
 
-    if (isEditing) {
-      setValue(expense.value);
-      setCurrency(expense.currency);
-      setMethod(expense.method);
-      setTag(expense.tag);
-      setDescription(expense.description);
-    }
-  }, [editInfo])
+  useEffect(() => {
+    setValue('' || expense.value);
+    setCurrency('' || expense.currency);
+    setMethod('' || expense.method);
+    setTag('' || expense.tag);
+    setDescription('' || expense.description);
+  }, [expense]);
 
   async function handleSubmitExpense(e) {
     e.preventDefault();
@@ -57,22 +52,17 @@ export default function ExpenseForm() {
       } else {
         addExpense({ ...expenseData, exchange });
       }
-      setValue('');
-      setCurrency('');
-      setMethod('');
-      setTag('');
-      setDescription('');
-      setIsFormVisible(false);
+      setIsFormVisible({ isVisible: false, isEditing: false, expense: {} });
     }
   }
 
-  return isFormVisible && (
+  return isVisible && (
     <div className="expense-form-container">
       <form onSubmit={ handleSubmitExpense } className="expense-form">
         <header className="expense-form-header">
           <button
             type="button"
-            onClick={ () => setIsFormVisible(false) }
+            onClick={ () => setIsFormVisible({ isVisible: false, isEditing: false, expense: {} }) }
           >
             <TiArrowLeftThick />
           </button>

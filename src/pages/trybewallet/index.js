@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './styles/index.css';
+import './styles/expenseForm.css'
 import './styles/table.css';
 
 import Table from './components/Table';
@@ -18,9 +19,7 @@ export default function Wallet() {
         </header>
         
         <ExpenseForm />
-        
         <Table />
-        
         <ExpenseAddBtn />
       </WalletProvider>
     </div>

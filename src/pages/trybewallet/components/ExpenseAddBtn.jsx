@@ -9,7 +9,7 @@ export default function ExpenseAddBtn() {
   return (
     <button
       type="button"
-      onClick={ () => setIsFormVisible(true) }
+      onClick={ () => setIsFormVisible(prevState => ({...prevState, isVisible: true})) }
       className="expense-add-btn"
     >
       <AiOutlinePlus />
