@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Apresentation from './components/Apresentation';
 import Stacks from './components/Stacks';
 import Projects from './components/Projects';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -16,10 +17,7 @@ export default function App() {
 
       <Projects />
 
-      <footer className="footer-home">
-        <span>Feito com React, CSS e dedicação.</span>
-        <span>Rodrigo Lima &copy; 2022</span>
-      </footer>
+      <Footer />
     </div>
   );
 }
