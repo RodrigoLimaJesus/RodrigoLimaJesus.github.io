@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -36,7 +40,6 @@
 .blue {
   color: var(--blue);
 }
-
 
 .purple {
   color: var(--purple);
