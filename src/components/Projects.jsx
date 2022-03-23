@@ -2,46 +2,78 @@ import React from 'react';
 
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
 
-import ProgrammigGif from '../images/programming.gif';
+import Container from './Container';
+import ContainerTitle from './ContainerTitle';
+
+import MyFilms from '../images/myfilms.png';
 
 export default function Projects() {
   const projects = [
     {
-      name: 'TrybeWallet',
-      image: '',
-      link: './trybewallet',
-      mobile: false,
+      name: 'MyFilms',
+      image: MyFilms,
+      link: 'https://myfilms.rodrigolimajesus.vercel.app/',
+      stacks: ['Tailwind CSS', 'React Js', 'Context Api'],
+      description:
+        'Um app feito com muito carinho para treinar algumas stacks front-end, inspirado na queridinha Netflix e com consumo da API do The Movie DB',
+      mobile: true,
       desktop: true,
     },
   ];
+
   return (
-    <div className="container projects-container">
-      <div className="projects-container-info">
-        <p>
-          Os projetos com designe para desktop têm o ícone <FaDesktop />, para
-          mobile têm o ícone <FaMobileAlt />, e os responsivos possuem os dois
-          ícones.
-        </p>
-        <img
-          src={ProgrammigGif}
-          alt="Gif de pessoa programando"
-          className="programmingGif"
-        />
-      </div>
-      <h2 className="light-blue">{'<Projetos>'}</h2>
+    <Container>
+      <ContainerTitle title="<Projetos>" />
+
       <div>
         {projects.map((project, index) => (
-          <div key={index} className="project-card">
-            <img src={project.image} alt={project.name} />
-            <span>
-              {project.desktop && <FaDesktop />}
-              {project.mobile && <FaMobileAlt />}
-              {project.name}
-            </span>
+          <div key={index} className="flex  flex-col-reverse">
+            <div className="mr-3 flex flex-col">
+              <h2 className="font-bold my-2 flex flex-row items-center justify-center">
+                {project.name}
+                {project.desktop && (
+                  <span className="mx-1">
+                    <FaDesktop />
+                  </span>
+                )}
+                {project.mobile && (
+                  <span className="mx-1">
+                    <FaMobileAlt />
+                  </span>
+                )}
+              </h2>
+
+              <p className="my-2 font-bold">{project.description}</p>
+
+              <ul className="list-[square] list-inside flex flex-row flex-wrap my-3">
+                {project.stacks.map((stack) => (
+                  <li key={stack} className="mx-2">
+                    {stack}
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="font-bold text-yellow-300 self-center my-2"
+              >
+                Link do deploy
+              </a>
+            </div>
+
+            <img
+              src={project.image}
+              alt={project.name}
+              title={project.name}
+              className="my-3 rounded-lg shadow-lg shadow-white/50"
+            />
           </div>
         ))}
       </div>
-      <h2 className="light-blue">{'</Projetos>'}</h2>
-    </div>
+
+      <ContainerTitle title="</Projetos>" />
+    </Container>
   );
 }
