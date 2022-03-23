@@ -7,7 +7,7 @@ import Projects from './components/Projects';
 
 export default function App() {
   return (
-    <div>
+    <div className="text-white font-sans bg-app-bg-dark">
       <Header />
 
       <Apresentation />

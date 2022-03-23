@@ -7,6 +7,19 @@ import MyImage from '../images/eu.jpeg';
 export default function Header() {
   const [classSideBar, setClassSideBar] = useState('');
 
+  const mapLinks = [
+    {
+      Icon: <BsLinkedin />,
+      name: 'Linkedin',
+      link: 'https://www.linkedin.com/in/rodrigo-lima-jesus/',
+    },
+    {
+      Icon: <BsGithub />,
+      name: 'Github',
+      link: 'https://github.com/RodrigoLimaJesus',
+    },
+  ];
+
   function handleMenu({ target }) {
     const btn = target.closest('button');
     const containsShow = btn.classList.contains('show-menu');
@@ -22,44 +35,46 @@ export default function Header() {
       if (prevState === '' || prevState.includes('hide-side-bar')) {
         return 'show-side-bar';
       }
-      return 'hide-side-bar'
+      return 'hide-side-bar';
     });
   }
 
   return (
-    <header className="header-home">
-      <h1>Rodrigo <span className="light-blue">Lima</span></h1>
+    <header className="flex justify-between items-center bg-app-container-dark text-3xl font-bold p-6 rounded-b-2xl">
+      <h1>
+        Rodrigo <span className="text-cyan-300">Lima</span>
+      </h1>
 
       <button
         type="button"
-        className="btn-header-menu"
-        onClick={ handleMenu }
+        className="relative flex items-center right-0"
+        onClick={handleMenu}
       >
         <GiHamburgerMenu />
       </button>
 
-      <div className={`side-bar ${classSideBar}`} >
-        <div>
-          <img src={ MyImage } alt="Minha imagem de perfil" />
-          <nav>
+      <aside
+        className={`${classSideBar} fixed flex flex-col  bg-app-container-dark h-screen top-0 right-0 w-0`}
+      >
+        <img
+          src={MyImage}
+          alt="Minha imagem de perfil"
+          className="w-4/6 self-center my-6 rounded-xl shadow-md shadow-white"
+        />
+        <nav className="w-full flex flex-col">
+          {mapLinks.map(({ link, Icon, name }) => (
             <a
-              href="https://www.linkedin.com/in/rodrigo-lima-jesus/"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
+              href={link}
+              className="flex flex-row w-4/5 mx-auto my-2 text-app-links"
             >
-              <BsLinkedin /> Linkedin
+              <span className="mr-2">{Icon}</span>
+              {name}
             </a>
-            <a
-              href="https://github.com/RodrigoLimaJesus"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsGithub /> Github
-            </a>
-          </nav>
-        </div>
-      </div>
-
+          ))}
+        </nav>
+      </aside>
     </header>
-  )
+  );
 }

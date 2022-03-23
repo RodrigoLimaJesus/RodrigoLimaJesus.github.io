@@ -57,7 +57,7 @@ export default function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="font-bold text-yellow-300 self-center my-2"
+                className="font-bold text-app-links self-center my-2"
               >
                 Link do deploy
               </a>
