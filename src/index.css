@@ -82,3 +82,25 @@
   animation-name: hide-side-bar;
   animation-duration: var(--animation-time);
 }
+
+.awssld {
+  --content-background-color: transparent !important;
+  --slider-height-percentage: 105% !important;
+  margin-block: 20px;
+}
+
+.awssld__timer {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .awssld {
+    --slider-height-percentage: 55% !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .awssld {
+    --slider-height-percentage: 45% !important;
+  }
+}
