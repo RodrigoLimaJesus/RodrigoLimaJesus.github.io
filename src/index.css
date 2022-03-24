@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -5,66 +9,119 @@
 }
 
 :root {
-  --app-bg-dark: rgb(30, 50, 80);
-  --app-container-dark: rgb(10, 30, 60);
-  --app-txt-in-dark: rgb(240, 240, 240);
-  --app-txt-in-light: rgb(40, 40, 40);
-  --orange: rgb(248, 120, 49);
-  --yellow: rgb(239, 216, 29);
-  --green: rgb(14, 236, 14);
-  --light-blue: rgb(79, 240, 250);
-  --blue: rgb(79, 180, 214);
-  --purple: rgb(200, 120, 240);
+  --width-side-bar: 60vw;
+  --animation-time: 0.8s;
 }
 
-.orange {
-  color: var(--orange);
+@keyframes rotate-90-degree {
+  from {
+    transform: rotate(0deg);
+    right: 0;
+  }
+  to {
+    transform: rotate(-90deg);
+    right: var(--width-side-bar);
+  }
 }
 
-.yellow {
-  color: var(--yellow);
+@keyframes rotate-0-degree {
+  from {
+    transform: rotate(-90deg);
+    right: var(--width-side-bar);
+  }
+  to {
+    transform: rotate(0deg);
+    right: 0;
+  }
 }
 
-.green {
-  color: var(--green);
+.show-menu {
+  position: fixed;
+  animation-duration: var(--animation-time);
+  animation-name: rotate-90-degree;
+  right: var(--width-side-bar);
+  margin-right: 10px;
+  transform: rotate(90deg);
+  z-index: 1;
 }
 
-.light-blue {
-  color: var(--light-blue);
+.hide-menu {
+  animation-duration: var(--animation-time);
+  animation-name: rotate-0-degree;
+  transform: rotate(0deg);
 }
 
-.blue {
-  color: var(--blue);
+/* Sidebar */
+
+@keyframes show-side-bar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--width-side-bar);
+  }
 }
 
-
-.purple {
-  color: var(--purple);
+@keyframes hide-side-bar {
+  from {
+    width: var(--width-side-bar);
+  }
+  to {
+    width: 0;
+  }
 }
 
-body {
-  font-family: sans-serif;
-  background-color: var(--app-bg-dark);
-  color: var(--app-txt-in-dark);
+.show-side-bar {
+  box-shadow: 0 0 0 100rem rgba(0, 0, 0, 0.7);
+  animation-name: show-side-bar;
+  animation-duration: var(--animation-time);
+  width: var(--width-side-bar);
 }
 
-a {
-  text-decoration: none;
-  color: var(--yellow);
-  cursor: pointer;
-  transition: 0.5s;
+.hide-side-bar {
+  animation-name: hide-side-bar;
+  animation-duration: var(--animation-time);
 }
 
-button {
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: inherit;
-  cursor: pointer;
+.awssld {
+  --content-background-color: transparent !important;
+  --slider-height-percentage: 105% !important;
+  --organic-arrow-height: 25px !important;
+  margin-block: 20px;
 }
 
-@media screen and (min-width: 675px) {
-  a:hover {
-    color: var(--light-blue);
+.awssld__timer {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+
+.awssld__controls__arrow-left:before,
+.awssld__controls__arrow-left:after,
+.awssld__controls__arrow-right:before,
+.awssld__controls__arrow-right:after {
+  right: calc(
+    25% -
+      (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) /
+      2
+  ) !important;
+}
+
+.awssld__controls__arrow-left:before,
+.awssld__controls__arrow-left:after {
+  left: calc(
+    25% -
+      (0.7071 * (var(--organic-arrow-height) + var(--organic-arrow-thickness))) /
+      2
+  ) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .awssld {
+    --slider-height-percentage: 55% !important;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .awssld {
+    --slider-height-percentage: 45% !important;
   }
 }

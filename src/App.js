@@ -1,14 +1,23 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 
-import Home from './pages/home';
-import Wallet from './pages/trybewallet';
+import Header from './components/Header';
+import Apresentation from './components/Apresentation';
+import Stacks from './components/Stacks';
+import Projects from './components/Projects';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={ <Home /> } />
-      <Route path="/trybewallet" element={ <Wallet /> }/>
-    </Routes>
+    <div className="text-white font-sans bg-app-bg-dark">
+      <Header />
+
+      <Apresentation />
+
+      <Stacks />
+
+      <Projects />
+
+      <Footer />
+    </div>
   );
 }
