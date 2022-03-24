@@ -9,12 +9,12 @@ export default function Header() {
 
   const mapLinks = [
     {
-      Icon: <BsLinkedin />,
+      icon: <BsLinkedin />,
       name: 'Linkedin',
       link: 'https://www.linkedin.com/in/rodrigo-lima-jesus/',
     },
     {
-      Icon: <BsGithub />,
+      icon: <BsGithub />,
       name: 'Github',
       link: 'https://github.com/RodrigoLimaJesus',
     },
@@ -62,7 +62,7 @@ export default function Header() {
           className="w-4/6 self-center my-6 rounded-xl shadow-md shadow-white sm:hidden"
         />
         <nav className="w-full flex flex-col sm:flex-row ">
-          {mapLinks.map(({ link, Icon, name }) => (
+          {mapLinks.map(({ link, icon, name }) => (
             <a
               target="_blank"
               rel="noreferrer noopener"
@@ -70,7 +70,7 @@ export default function Header() {
               key={link}
               className="flex flex-row w-4/5 mx-auto my-2 text-app-links duration-300 sm:mx-2 sm:hover:text-app-links-hover"
             >
-              <span className="mr-2">{Icon}</span>
+              <span className="mr-2">{icon}</span>
               {name}
             </a>
           ))}
