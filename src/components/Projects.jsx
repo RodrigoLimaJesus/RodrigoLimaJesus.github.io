@@ -34,7 +34,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="flex flex-col-reverse items-center md:flex-row md:my-4"
+            className="flex flex-col-reverse items-center md:flex-row md:my-4 md:mx-10"
           >
             <div className="mr-3 flex flex-col items-center justify-center md:w-2/4 md:text-lg lg:text-xl md:mr-5">
               <p className="my-2 font-bold text-center md:my-0">
