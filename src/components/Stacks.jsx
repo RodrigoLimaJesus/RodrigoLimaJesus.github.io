@@ -21,12 +21,12 @@ export default function Stacks() {
     <Container>
       <ContainersTitle title="<Stacks>" />
 
-      <div className="flex flex-wrap justify-evenly">
+      <div className="flex flex-wrap justify-evenly sm:my-2 md:my-3 lg:my-4">
         {stacksDetails.map(({ name, Icon, color }) => (
           <span
             key={name}
             style={{ color: color }}
-            className="flex flex-col items-center m-2 text-5xl"
+            className="flex flex-col items-center m-2 text-5xl sm:text-6xl lg:text-7xl"
           >
             <Icon />
             <span className="text-sm">{name}</span>
