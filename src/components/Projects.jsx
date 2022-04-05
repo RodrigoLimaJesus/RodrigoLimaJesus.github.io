@@ -1,16 +1,13 @@
 import React from 'react';
 
-import AwesomeSlider from 'react-awesome-slider';
-import withAutoplay from 'react-awesome-slider/dist/autoplay';
-import 'react-awesome-slider/dist/styles.css';
-
+import { FiExternalLink } from 'react-icons/fi';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 
 import Container from './Container';
 import ContainerTitle from './ContainerTitle';
 import MyFilms from '../images/myfilms.png';
-
-const AutoplaySlider = withAutoplay(AwesomeSlider);
 
 export default function Projects() {
   const projects = [
@@ -30,16 +27,14 @@ export default function Projects() {
     <Container>
       <ContainerTitle title="<Projetos>" />
 
-      <AutoplaySlider play={true} interval={4000}>
+      <Carousel autoPlay infiniteLoop interval={3000} showThumbs={false}>
         {projects.map((project, index) => (
           <div
             key={index}
-            className="flex flex-col-reverse items-center md:flex-row md:my-4 md:mx-10"
+            className="flex flex-col-reverse items-center my-5 md:flex-row md:mx-7"
           >
-            <div className="mr-3 flex flex-col items-center justify-center md:w-2/4 md:text-lg lg:text-xl md:mr-5">
-              <p className="my-2 font-bold text-center md:my-0">
-                {project.description}
-              </p>
+            <div className="mr-3 flex flex-col items-center justify-center md:w-2/4 md:text-lg lg:text-xl">
+              <p className="my-2 font-bold text-center md:my-0">{project.description}</p>
 
               <ul className="list-[square] list-inside flex flex-row flex-wrap my-3">
                 {project.stacks.map((stack) => (
@@ -53,9 +48,9 @@ export default function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="font-bold text-app-links self-center my-2 duration-300 sm:hover:text-app-links-hover sm:text-xl md:text-2xl"
+                className="flex items-center font-bold text-app-links self-center my-2 duration-300 sm:hover:text-app-links-hover sm:text-xl md:text-2xl"
               >
-                Link do deploy
+                <span className="mr-3">Link do deploy</span> <FiExternalLink />
               </a>
             </div>
 
@@ -82,7 +77,7 @@ export default function Projects() {
             </div>
           </div>
         ))}
-      </AutoplaySlider>
+      </Carousel>
 
       <ContainerTitle title="</Projetos>" />
     </Container>
