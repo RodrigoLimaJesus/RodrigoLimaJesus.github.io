@@ -27,7 +27,7 @@ export default function Projects() {
     <Container>
       <ContainerTitle title="<Projetos>" />
 
-      <Carousel autoPlay infiniteLoop interval={3000} thumbsRef="">
+      <Carousel autoPlay infiniteLoop interval={3000} showThumbs={false}>
         {projects.map((project, index) => (
           <div
             key={index}
