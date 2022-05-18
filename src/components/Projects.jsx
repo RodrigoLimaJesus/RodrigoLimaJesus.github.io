@@ -1,13 +1,12 @@
 import React from 'react';
-
-import { FiExternalLink } from 'react-icons/fi';
 import { FaDesktop, FaMobileAlt } from 'react-icons/fa';
+import { FiExternalLink } from 'react-icons/fi';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-
+import MyFilms from '../images/myfilms.png';
+import QuantoEsta from '../images/quanto-esta.png';
 import Container from './Container';
 import ContainerTitle from './ContainerTitle';
-import MyFilms from '../images/myfilms.png';
 
 export default function Projects() {
   const projects = [
@@ -15,9 +14,19 @@ export default function Projects() {
       name: 'MyFilms',
       image: MyFilms,
       link: 'https://myfilms.rodrigolimajesus.vercel.app/',
-      stacks: ['Tailwind CSS', 'React Js', 'Context Api'],
+      stacks: ['React Js', 'Context Api', 'Tailwind CSS'],
       description:
-        'Um app feito com muito carinho para treinar algumas stacks front-end, inspirado na queridinha Netflix e com consumo da API do The Movie DB',
+        'Um app feito com muito carinho para treinar algumas stacks front-end, inspirado na queridinha Netflix e com consumo da API do The Movie DB.',
+      mobile: true,
+      desktop: true,
+    },
+    {
+      name: 'Quanto está',
+      image: QuantoEsta,
+      link: 'https://quanto-esta.rodrigolimajesus.vercel.app/',
+      stacks: ['Typescript', 'React Js', 'Context Api', 'Tailwind CSS'],
+      description:
+        'Um projeto pessoal feito para você que quer estar por dentro da cotação de algumas das principais moedas do mercado financeiro.',
       mobile: true,
       desktop: true,
     },
@@ -27,7 +36,7 @@ export default function Projects() {
     <Container>
       <ContainerTitle title="<Projetos>" />
 
-      <Carousel autoPlay infiniteLoop interval={3000} showThumbs={false}>
+      <Carousel autoPlay infiniteLoop interval={5000} showThumbs={false}>
         {projects.map((project, index) => (
           <div
             key={index}
