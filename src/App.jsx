@@ -37,7 +37,12 @@ export default function App() {
           <Contact />
         </section>
 
-        <section className="bg-zinc-200 dark:bg-zinc-800">
+        <section
+          className="
+        bg-zinc-200 dark:bg-zinc-800
+          transition
+          "
+        >
           <About />
         </section>
       </div>

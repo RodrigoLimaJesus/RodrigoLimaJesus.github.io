@@ -4,12 +4,7 @@ import ToggleThemeBtn from './components/ToggleThemeBtn';
 
 export default function Header({ changeTheme }) {
   return (
-    <header
-      className="
-      flex justify-between items-center
-      p-3
-      "
-    >
+    <header className="flex justify-between items-center p-3">
       <div className="flex items-center text-2xl">
         <button className="mr-2">
           <IoMenu />
