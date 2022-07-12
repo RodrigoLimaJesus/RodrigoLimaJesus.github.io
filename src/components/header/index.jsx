@@ -15,7 +15,15 @@ export default function Header({ changeTheme }) {
           <IoMenu />
         </button>
 
-        <h1 className="font-bold text-violet-800 dark:text-orange-400">Rodrigo</h1>
+        <h1
+          className="
+          font-bold
+          text-sky-800 dark:text-orange-400
+          text-3xl
+          "
+        >
+          Rodrigo
+        </h1>
       </div>
 
       <ToggleThemeBtn changeTheme={changeTheme} />

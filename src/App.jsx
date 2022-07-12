@@ -1,12 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Contact from './components/contact';
 import Header from './components/header';
 
 export default function App() {
   const [theme, setTheme] = useState('dark');
 
+  useEffect(() => {
+    const loadTheme = localStorage.theme || 'dark';
+    setTheme(loadTheme);
+  }, []);
+
   const changeTheme = () => {
-    setTheme((prevTheme) => (prevTheme === '' ? 'dark' : ''));
+    setTheme((prevTheme) => {
+      if (prevTheme === 'light') {
+        localStorage.theme = 'dark';
+        return 'dark';
+      }
+
+      localStorage.theme = 'light';
+      return 'light';
+    });
   };
 
   return (

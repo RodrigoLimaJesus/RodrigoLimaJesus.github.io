@@ -31,11 +31,22 @@ export default function Contact() {
         "
       />
 
-      <h2 className="font-bold my-3">Rodrigo Lima</h2>
+      <div className="my-3 text-center">
+        <h2 className="font-bold">Rodrigo Lima</h2>
+        <h3
+          className="
+          text-base
+          text-black/75 dark:text-white/75
+          "
+        >
+          Desenvolvedor full stack
+        </h3>
+      </div>
 
       <div className="flex">
         {links.map(({ icon, href }) => (
           <a
+            key={href}
             href={href}
             target="_blank"
             rel="noreferrer"
