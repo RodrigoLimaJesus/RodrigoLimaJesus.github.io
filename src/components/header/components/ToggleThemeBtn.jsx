@@ -9,18 +9,18 @@ export default function ToggleThemeBtn({ changeTheme }) {
       flex justify-between
       focus:outline-none
       bg-gray-300 dark:bg-black
-      border-black border rounded-full
+      border-black border rounded-full dark:border-white
       w-16 p-1
       text-xl font-bold
       relative
-      transition-all duration-200
+      transition
       "
       onClick={changeTheme}
     >
       <BsCircleFill
         className="
         absolute
-        transition-all duration-200
+        transition
         dark:translate-x-8
         text-gray-500
         border-2 border-black

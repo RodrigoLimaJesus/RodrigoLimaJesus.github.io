@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Contact from './components/contact';
 import Header from './components/header';
 
 export default function App() {
@@ -9,10 +10,19 @@ export default function App() {
   };
 
   return (
-    <div className={`${theme}`}>
-      <section>
-        <Header changeTheme={changeTheme} />
-      </section>
+    <div className={theme}>
+      <div className="text-black dark:text-white">
+        <section
+          className="
+        bg-zinc-200 dark:bg-zinc-900
+        flex flex-col
+        transition
+        "
+        >
+          <Header changeTheme={changeTheme} />
+          <Contact />
+        </section>
+      </div>
     </div>
   );
 }
