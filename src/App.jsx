@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import About from './components/about';
 import Contact from './components/contact';
 import Header from './components/header';
 
@@ -27,13 +28,17 @@ export default function App() {
       <div className="text-black dark:text-white">
         <section
           className="
-        bg-zinc-200 dark:bg-zinc-900
+        bg-zinc-300 dark:bg-zinc-900
         flex flex-col
         transition
         "
         >
           <Header changeTheme={changeTheme} />
           <Contact />
+        </section>
+
+        <section className="bg-zinc-200 dark:bg-zinc-800">
+          <About />
         </section>
       </div>
     </div>
