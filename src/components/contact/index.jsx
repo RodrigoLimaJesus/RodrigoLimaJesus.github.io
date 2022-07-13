@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import ProfilePicture from '../../images/euQuadrado.jpeg';
@@ -6,11 +6,12 @@ import ProfilePicture from '../../images/euQuadrado.jpeg';
 export default function Contact() {
   const links = [
     {
+      id: useId(),
       icon: <BsLinkedin />,
       href: 'https://www.linkedin.com/in/rodrigo-lima-jesus/',
     },
-    { icon: <BsGithub />, href: 'https://github.com/RodrigoLimaJesus' },
-    { icon: <MdEmail />, href: 'mailto:rodrigootavio19@gmail.com' },
+    { id: useId(), icon: <BsGithub />, href: 'https://github.com/RodrigoLimaJesus' },
+    { id: useId(), icon: <MdEmail />, href: 'mailto:rodrigootavio19@gmail.com' },
   ];
 
   return (
@@ -44,9 +45,9 @@ export default function Contact() {
       </div>
 
       <div className="flex">
-        {links.map(({ icon, href }) => (
+        {links.map(({ icon, href, id }) => (
           <a
-            key={href}
+            key={id}
             href={href}
             target="_blank"
             rel="noreferrer"

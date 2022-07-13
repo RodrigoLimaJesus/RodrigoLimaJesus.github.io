@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import About from './components/about';
 import Contact from './components/contact';
 import Header from './components/header';
+import Stacks from './components/stacks';
 
 export default function App() {
   const [theme, setTheme] = useState('dark');
@@ -37,13 +38,12 @@ export default function App() {
           <Contact />
         </section>
 
-        <section
-          className="
-        bg-zinc-200 dark:bg-zinc-800
-          transition
-          "
-        >
+        <section className="bg-zinc-200 dark:bg-zinc-800 transition">
           <About />
+        </section>
+
+        <section className="bg-zinc-300 dark:bg-zinc-900 transition">
+          <Stacks />
         </section>
       </div>
     </div>

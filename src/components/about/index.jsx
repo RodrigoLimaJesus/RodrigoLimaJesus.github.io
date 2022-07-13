@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function About() {
   return (
-    <div className="text-center py-4 px-4">
+    <div className="text-center p-4">
       <h2 className="font-bold text-2xl">Sobre mim</h2>
       <p className="my-4">
         Sou brasileiro natural de Manaus/Am, apaixonado por programação e pelos desafios
