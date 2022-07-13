@@ -7,7 +7,7 @@ export default function About() {
     <Container>
       <Title>Sobre mim</Title>
 
-      <p className="my-4">
+      <p className="my-4 md:text-lg">
         Sou brasileiro natural de Manaus/Am, apaixonado por programação e pelos desafios
         que ela oferece, atualmente estudo engenharia da computação na Universidade
         Federal do Amazonas e desenvolvimento web na Trybe, uma escola que vai além do

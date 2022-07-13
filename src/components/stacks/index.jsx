@@ -122,7 +122,8 @@ export default function Stacks() {
             key={id}
             className={`
             flex flex-col items-center
-            mx-2 my-3 text-3xl
+            mx-2 my-3 md:m-4
+            text-3xl sm:text-4xl md:text-5xl
             ${color}
             `}
           >

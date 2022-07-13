@@ -19,7 +19,7 @@ export default function Contact() {
       className="
       self-center flex flex-col items-center
       my-5
-      text-2xl
+      text-2xl sm:text-3xl
       "
     >
       <img

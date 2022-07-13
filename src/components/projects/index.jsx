@@ -45,17 +45,26 @@ export default function Projects() {
     <Container>
       <Title>Meus projetos</Title>
 
-      <div className="my-4 flex flex-col items-center justify-center">
+      <div className="my-4 flex flex-wrap justify-around">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="border border-black dark:border-white rounded-xl my-3"
+            className="
+            border border-black dark:border-white
+            rounded-xl
+            my-3 md:px-2 lg:px-4
+            w-[80%] sm:w-[70%] md:w-[48%] lg:w-[45%]
+            "
           >
             <div className="flex flex-col justify-center items-center mt-2">
               <img
                 src={project.image}
                 alt={project.name}
-                className="w-80 rounded-lg shadow-md shadow-black dark:shadow-white"
+                className="
+                w-72 sm:w-80 sm:h-60
+                rounded-lg
+                shadow-md shadow-black dark:shadow-white
+                "
               />
 
               <div className="flex justify-center items-center my-2">
@@ -77,7 +86,7 @@ export default function Projects() {
               >
                 {project.stacks.map((stack) => (
                   <li
-                    id={stack.id}
+                    key={stack.id}
                     className="mx-1 marker:text-sky-800 dark:marker:text-orange-400"
                   >
                     {stack.name}
