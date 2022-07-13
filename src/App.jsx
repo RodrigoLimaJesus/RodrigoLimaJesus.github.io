@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import About from './components/about';
 import Contact from './components/contact';
 import Header from './components/header';
+import Projects from './components/projects';
 import Stacks from './components/stacks';
 
 export default function App() {
@@ -44,6 +45,10 @@ export default function App() {
 
         <section className="bg-zinc-300 dark:bg-zinc-900 transition">
           <Stacks />
+        </section>
+
+        <section className="bg-zinc-200 dark:bg-zinc-800 transition">
+          <Projects />
         </section>
       </div>
     </div>

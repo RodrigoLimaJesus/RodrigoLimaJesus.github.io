@@ -53,7 +53,8 @@ export default function Contact() {
             rel="noreferrer"
             className="
             mx-2
-            transition
+            transition duration-200
+            text-sky-800 dark:text-orange-400
             hover:text-orange-700 dark:hover:text-blue-400
             "
           >

@@ -1,5 +1,7 @@
 import React, { useId } from 'react';
 import * as Si from 'react-icons/si';
+import Container from '../wrappers/Container';
+import Title from '../wrappers/Title';
 
 export default function Stacks() {
   const stacks = [
@@ -106,8 +108,8 @@ export default function Stacks() {
   ];
 
   return (
-    <div className="text-center p-4">
-      <h2 className="font-bold text-2xl">Minhas tecnologias</h2>
+    <Container>
+      <Title>Minhas tecnologias</Title>
 
       <div
         className="
@@ -129,6 +131,6 @@ export default function Stacks() {
           </div>
         ))}
       </div>
-    </div>
+    </Container>
   );
 }
