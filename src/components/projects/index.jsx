@@ -75,7 +75,7 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="mb-4">
+            <div className="mb-4 flex flex-col items-center">
               <p className="px-3">{project.description}</p>
 
               <ul
@@ -105,6 +105,7 @@ export default function Projects() {
                 transition duration-200
                 hover:text-orange-700 dark:hover:text-blue-400
                 hover:underline
+                w-fit
                 "
               >
                 Veja o site rodando
