@@ -8,7 +8,7 @@ export default function GoPageTopBtn() {
         window.document.getElementById('page-top').scrollIntoView({ behavior: 'smooth' });
       }}
       className="
-      fixed bottom-4 right-4 md:bottom-14 md:right-8 lg:bottom-16
+      fixed bottom-2 right-2 md:bottom-14 md:right-8 lg:bottom-16
       text-3xl
       transition
       bg-sky-800 dark:bg-orange-400
