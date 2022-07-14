@@ -45,7 +45,7 @@ export default function Stacks() {
     {
       id: useId(),
       icon: <Si.SiStyledcomponents />,
-      name: 'Styled-Components',
+      name: 'Styled Components',
       color: 'text-purple-800 dark:text-purple-400',
     },
     { id: useId(), icon: <Si.SiCypress />, name: 'Cypress', color: '' },
@@ -111,19 +111,15 @@ export default function Stacks() {
     <Container>
       <Title>Minhas tecnologias</Title>
 
-      <div
-        className="
-        flex flex-wrap justify-around
-        my-5
-        "
-      >
+      <div className="flex flex-wrap justify-around my-5">
         {stacks.map(({ id, icon, name, color }) => (
           <div
             key={id}
             className={`
             flex flex-col items-center
             mx-2 my-3 md:m-4
-            text-3xl sm:text-4xl md:text-5xl
+            transition-all
+            text-3xl sm:text-4xl sm:hover:text-6xl md:text-5xl md:hover:text-7xl
             ${color}
             `}
           >
