@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import About from './components/about';
 import Contact from './components/contact';
+import Footer from './components/footer';
 import GoPageTopBtn from './components/GoPageTopBtn';
 import Header from './components/header';
 import Projects from './components/projects';
@@ -52,6 +53,7 @@ export default function App() {
 
         <section id="projects" className="bg-zinc-200 dark:bg-zinc-800 transition">
           <Projects />
+          <Footer />
         </section>
       </div>
     </div>

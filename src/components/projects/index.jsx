@@ -51,6 +51,7 @@ export default function Projects() {
             key={project.id}
             className="
             border border-black dark:border-white
+            shadow-md shadow-black dark:shadow-white
             rounded-xl
             my-3 md:px-2 lg:px-4
             w-[80%] sm:w-[70%] md:w-[48%] lg:w-[45%]
