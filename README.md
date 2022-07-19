@@ -6,11 +6,11 @@
 
 ## Caso tenha interesse em baixar o repositório:
 
-1. Clone o repositório
+1. Clone o repositório.
   * `git clone git@github.com:RodrigoLimaJesus/portfolio.git`.
-2. Entre na pasta com o projeto clonado
+2. Entre na pasta com o projeto clonado.
   * `cd portfolio`.
-3. Instale as dependências
+3. Instale as dependências.
   * `npm install`.
-4. Inicie a apicação
+4. Inicie a apicação.
   * `npm start`.
